@@ -24,4 +24,20 @@ public abstract class Figure {
 		this.player = player;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null && obj.getClass().getName() == this.getClass().getName()) {
+			Figure temp = (Figure) obj;
+			if (temp.player == this.player) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return this.player + " " + this.getClass().getName();
+	}
 }

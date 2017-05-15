@@ -28,11 +28,11 @@ public class BoardTest {
 		for (int i = 0; i < 5; i++) {
 			assertEquals(board.getField(i, 4).figure, Figure.WHITE_PAWN);
 		}
-		assertEquals(board.getField(0, 5).figure, Figure.WHITE_KING);
-		assertEquals(board.getField(1, 5).figure, Figure.WHITE_QUEEN);
+		assertEquals(board.getField(4, 5).figure, Figure.WHITE_KING);
+		assertEquals(board.getField(3, 5).figure, Figure.WHITE_QUEEN);
 		assertEquals(board.getField(2, 5).figure, Figure.WHITE_BISHOP);
-		assertEquals(board.getField(3, 5).figure, Figure.WHITE_KNIGHT);
-		assertEquals(board.getField(4, 5).figure, Figure.WHITE_ROOK);
+		assertEquals(board.getField(1, 5).figure, Figure.WHITE_KNIGHT);
+		assertEquals(board.getField(0, 5).figure, Figure.WHITE_ROOK);
 		
 		// Test null Pieces
 		for (int x = 0; x < 5; x++) {
@@ -53,16 +53,16 @@ public class BoardTest {
 		assertEquals(board.activePlayer, Player.BLACK);
 		
 		// Test Black Pieces
-		assertEquals(board.getField(0, 0), Figure.BLACK_PAWN);
-		assertEquals(board.getField(1, 0), Figure.BLACK_PAWN);
-		assertEquals(board.getField(2, 1), Figure.BLACK_KNIGHT);
+		assertEquals(board.getField(0, 0).figure, Figure.BLACK_PAWN);
+		assertEquals(board.getField(1, 0).figure, Figure.BLACK_PAWN);
+		assertEquals(board.getField(2, 1).figure, Figure.BLACK_KNIGHT);
 		
 		// Test White Pieces
-		assertEquals(board.getField(2, 0), Figure.WHITE_KING);
-		assertEquals(board.getField(3, 0), Figure.WHITE_PAWN);
-		assertEquals(board.getField(0, 1), Figure.WHITE_QUEEN);
-		assertEquals(board.getField(1, 1), Figure.WHITE_KNIGHT);
-		assertEquals(board.getField(3, 1), Figure.WHITE_ROOK);
+		assertEquals(board.getField(2, 0).figure, Figure.WHITE_KING);
+		assertEquals(board.getField(3, 0).figure, Figure.WHITE_PAWN);
+		assertEquals(board.getField(0, 1).figure, Figure.WHITE_QUEEN);
+		assertEquals(board.getField(1, 1).figure, Figure.WHITE_KNIGHT);
+		assertEquals(board.getField(3, 1).figure, Figure.WHITE_ROOK);
 		
 		// Test null Pieces
 		
