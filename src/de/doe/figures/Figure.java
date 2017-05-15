@@ -1,5 +1,8 @@
 package de.doe.figures;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import de.doe.Player;
 
 public abstract class Figure {
@@ -26,13 +29,17 @@ public abstract class Figure {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj != null && obj.getClass().getName() == this.getClass().getName()) {
-			Figure temp = (Figure) obj;
-			if (temp.player == this.player) {
-				return true;
-			}
+		
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Figure)) {
+			return false;
 		}
-		return false;
+		
+		Figure figure = (Figure) obj;
+		
+		return new EqualsBuilder().append(this.getClass().getName(), figure.getClass().getName())
+				.append(player, figure.player).isEquals();
 	}
 	
 	@Override
@@ -40,4 +47,10 @@ public abstract class Figure {
 		
 		return this.player + " " + this.getClass().getName();
 	}
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37).append(this.getClass().getName()).append(player).toHashCode();
+	}
+	
 }
