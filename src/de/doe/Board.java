@@ -21,9 +21,9 @@ public class Board {
 		board[0][3].figure = Figure.BLACK_KNIGHT;
 		board[0][4].figure = Figure.BLACK_ROOK;
 		
-		for(int i = 0; i <= 4; i++){
-		  board[1][i].figure = Figure.BLACK_PAWN;
-		  board[4][i].figure = Figure.WHITE_PAWN;
+		for (int i = 0; i <= 4; i++) {
+			board[1][i].figure = Figure.BLACK_PAWN;
+			board[4][i].figure = Figure.WHITE_PAWN;
 		}
 		
 		board[5][0].figure = Figure.WHITE_ROOK;
@@ -52,8 +52,8 @@ public class Board {
 		// TODO Auto-generated method stub
 	}
 	
-	public Field getField(int x, int y){
-    
-	  return board[y][x];
+	public Field getField(int x, int y) {
+		
+		return board[y][x];
 	}
 }
