@@ -2,6 +2,7 @@ package de.doe;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.doe.figures.Figure;
@@ -33,7 +34,7 @@ public class BoardTest {
 		}
 	}
 	
-	
+	@Ignore
 	@Test
 	public void readBoardLayoutTest() throws Exception {
 		
