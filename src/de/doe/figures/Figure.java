@@ -1,5 +1,7 @@
 package de.doe.figures;
 
+import de.doe.Player;
+
 public abstract class Figure {
 	
 	public static final Figure WHITE_PAWN = new Pawn(Player.WHITE);

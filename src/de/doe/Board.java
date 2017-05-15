@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 
 import de.doe.figures.Figure;
-import de.doe.figures.Player;
 
 public class Board {
 	

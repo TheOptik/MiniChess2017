@@ -1,6 +1,6 @@
 package de.doe;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -14,32 +14,37 @@ public class BoardTest {
 		Board board = new Board();
 		
 		// Test Black Pieces
-		assertEquals(board.getField(0, 0), Figure.BLACK_KING);
-		assertEquals(board.getField(1, 0), Figure.BLACK_QUEEN);
-		assertEquals(board.getField(2, 0), Figure.BLACK_BISHOP);
-		assertEquals(board.getField(3, 0), Figure.BLACK_KNIGHT);
-		assertEquals(board.getField(4, 0), Figure.BLACK_ROOK);
+		assertEquals(board.getField(0, 0).figure, Figure.BLACK_KING);
+		assertEquals(board.getField(1, 0).figure, Figure.BLACK_QUEEN);
+		assertEquals(board.getField(2, 0).figure, Figure.BLACK_BISHOP);
+		assertEquals(board.getField(3, 0).figure, Figure.BLACK_KNIGHT);
+		assertEquals(board.getField(4, 0).figure, Figure.BLACK_ROOK);
 		for (int i = 0; i < 5; i++) {
-			assertEquals(board.getField(i, 1), Figure.BLACK_PAWN);
+			assertEquals(board.getField(i, 1).figure, Figure.BLACK_PAWN);
 		}
 		
 		// Test WhitePieces
-		assertEquals(board.getField(0, 0), Figure.WHITE_KING);
-		assertEquals(board.getField(1, 0), Figure.WHITE_QUEEN);
-		assertEquals(board.getField(2, 0), Figure.WHITE_BISHOP);
-		assertEquals(board.getField(3, 0), Figure.WHITE_KNIGHT);
-		assertEquals(board.getField(4, 0), Figure.WHITE_ROOK);
 		for (int i = 0; i < 5; i++) {
-			assertEquals(board.getField(i, 1), Figure.WHITE_PAWN);
+			assertEquals(board.getField(i, 4).figure, Figure.WHITE_PAWN);
 		}
+		assertEquals(board.getField(0, 5).figure, Figure.WHITE_KING);
+		assertEquals(board.getField(1, 5).figure, Figure.WHITE_QUEEN);
+		assertEquals(board.getField(2, 5).figure, Figure.WHITE_BISHOP);
+		assertEquals(board.getField(3, 5).figure, Figure.WHITE_KNIGHT);
+		assertEquals(board.getField(4, 5).figure, Figure.WHITE_ROOK);
+		
+		// Test all null pieces
+		for (int x = 0; x < 5; x++) {
+			for (int y = 2; y < 4; y++) {
+				assertEquals(board.getField(x, y).figure, null);
+			}
+		}
+		
 	}
 	
 	@Ignore
 	@Test
 	public void readBoardLayoutTest() throws Exception {
-		
-		
-		
 		
 	}
 	
