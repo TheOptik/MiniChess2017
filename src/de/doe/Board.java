@@ -94,6 +94,7 @@ public class Board {
 				case '.':
 					this.board[i - 1][j].figure = null;
 					break;
+				default: this.board[i - 1][j].figure = null;
 				}
 			}
 			
@@ -101,7 +102,6 @@ public class Board {
 	}
 	
 	public Board(BufferedReader reader) {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
