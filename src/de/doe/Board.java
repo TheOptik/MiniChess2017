@@ -3,13 +3,15 @@ package de.doe;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
+import de.doe.figures.Player;
+
 public class Board {
 	
 	protected Field[][] board = new Field[5][6];
-	
+	protected Player activePlayer;
 	
 	public Board() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Board(String board) {
@@ -30,4 +32,8 @@ public class Board {
 		// TODO Auto-generated method stub
 	}
 	
+	public Field getField(int x, int y){
+    
+	  return board[y][x];
+	}
 }
