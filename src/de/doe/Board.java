@@ -37,17 +37,36 @@ public class Board {
 		
 	}
 	
+	public Board(String board) {
+		initalizeField();
+		initializeFigure(board);
+	}
+	
+	public Board(BufferedReader reader) {
+		initalizeField();
+		StringBuilder board = new StringBuilder();
+		String line;
+		
+		try {
+			do {
+				line = reader.readLine();
+				if (line != null) {
+					board.append(line).append(System.lineSeparator());
+				}
+			} while (reader.ready() && line != null);
+			initializeFigure(board.toString().trim());
+			
+		} catch (IOException e) {
+			org.apache.log4j.Logger.getRootLogger().fatal("Could not read board", e);
+		}
+	}
+	
 	private void initalizeField() {
 		for (int y = 0; y < board.length; y++) {
 			for (int x = 0; x < board[0].length; x++) {
 				board[y][x] = new Field(null);
 			}
 		}
-	}
-	
-	public Board(String board) {
-		initalizeField();
-		initializeFigure(board);
 	}
 	
 	private void initializeFigure(String board) {
@@ -107,24 +126,11 @@ public class Board {
 		}
 	}
 	
-	public Board(BufferedReader reader) {
-		initalizeField();
-		StringBuilder board = new StringBuilder();
-		String line;
-		
-		try {
-			do {
-				line = reader.readLine();
-				if (line != null) {
-					board.append(line).append(System.lineSeparator());
-				}
-			} while (reader.ready() && line != null);
-			initializeFigure(board.toString().trim());
-			
-		} catch (IOException e) {
-			org.apache.log4j.Logger.getRootLogger().fatal("Could not read board", e);
-		}
+	public Board move(Move move){
+		//TODO implement me!
+		return null;
 	}
+	
 	
 	@Override
 	public String toString() {
