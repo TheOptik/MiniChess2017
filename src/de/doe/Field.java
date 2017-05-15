@@ -11,4 +11,12 @@ public class Field {
 		this.figure = figure;
 	}
 	
+	@Override
+	public String toString() {
+		if (figure != null) {
+			return "<" + figure.toString() + ">";
+		} else {
+			return "<null>";
+		}
+	}
 }
