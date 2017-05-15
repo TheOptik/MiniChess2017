@@ -1,5 +1,8 @@
 package de.doe;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
+
 import org.junit.Test;
 
 import de.doe.figures.Figure;
@@ -44,9 +47,41 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void readBoardLayoutTest() throws Exception {
+	public void readBoardLayoutStringTest() throws Exception {
 		
 		Board board = new Board(getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."));
+		
+		// Test board parameter
+		assertEquals(board.turn, 20);
+		assertEquals(board.activePlayer, Player.BLACK);
+		
+		// Test Black Pieces
+		assertEquals(board.getField(0, 0).figure, Figure.BLACK_PAWN);
+		assertEquals(board.getField(1, 0).figure, Figure.BLACK_PAWN);
+		assertEquals(board.getField(2, 1).figure, Figure.BLACK_KNIGHT);
+		
+		// Test White Pieces
+		assertEquals(board.getField(2, 0).figure, Figure.WHITE_KING);
+		assertEquals(board.getField(3, 0).figure, Figure.WHITE_PAWN);
+		assertEquals(board.getField(0, 1).figure, Figure.WHITE_QUEEN);
+		assertEquals(board.getField(1, 1).figure, Figure.WHITE_KNIGHT);
+		assertEquals(board.getField(3, 1).figure, Figure.WHITE_ROOK);
+		
+		// Test null Pieces
+		
+		assertEquals(board.getField(4, 0).figure, null);
+		for (int x = 0; x < 5; x++) {
+			for (int y = 2; y < 6; y++) {
+				assertEquals(board.getField(x, y).figure, null);
+			}
+		}
+	}
+	
+	@Test
+	public void boardLayoutReaderTest() throws Exception {
+		
+		Board board = new Board(new BufferedReader(
+				new StringReader(getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."))));
 		
 		// Test board parameter
 		assertEquals(board.turn, 20);
