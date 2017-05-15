@@ -3,7 +3,7 @@ package de.doe;
 public enum Player {
 	BLACK, WHITE;
 	
-	public Player fromChar(char c) {
+	public static Player fromChar(char c) {
 		if (c == 'w' || c == 'W') {
 			return Player.WHITE;
 		} else if (c == 'b' || c == 'B') {
