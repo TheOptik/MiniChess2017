@@ -2,11 +2,13 @@ package de.doe;
 
 public class Move {
 	
+	Player player;
 	Coordinate from;
 	Coordinate to;
 	
-	public Move(String move) {
+	public Move(String move, Player player) {
 		move = move.toLowerCase();
+		this.player = player;
 		
 		String[] parts = move.split("-");
 		
