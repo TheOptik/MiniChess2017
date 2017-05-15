@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 
 public class Board {
 	
+	protected Field[][] board = new Field[5][6];
+	
+	
 	public Board() {
 		// TODO Auto-generated constructor stub
 	}
