@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 import de.doe.figures.Figure;
 
@@ -47,6 +48,10 @@ public class Board {
 
   public Board(String board) {
     initalizeField();
+    initializeFigure(board);
+  }
+
+  private void initializeFigure(String board) {
     String[] lines = board.split(System.lineSeparator());
     String[] firstLine = lines[0].split(" ");
     turn = Integer.parseInt(firstLine[0]);
@@ -104,18 +109,18 @@ public class Board {
   }
 
   public Board(BufferedReader reader) {
-
+    initalizeField();
     String board = null;
-    
+
     try {
-      while(reader.ready()){
-        board = board + reader.readLine() + System.lineSeparator(); 
+      while (reader.ready()) {
+        board = board + reader.readLine() + System.lineSeparator();
       }
-      
-      
+
+      initializeFigure(board);
+
     } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+        org.apache.log4j.Logger.getRootLogger().fatal("Could not read board", e);
     }
   }
 
