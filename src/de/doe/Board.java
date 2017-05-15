@@ -109,17 +109,17 @@ public class Board {
 	
 	public Board(BufferedReader reader) {
 		initalizeField();
-		String board = "";
+		StringBuilder board = new StringBuilder();
 		String line;
 		
 		try {
 			do {
 				line = reader.readLine();
 				if (line != null) {
-					board = board + line + System.lineSeparator();
+					board.append(line).append(System.lineSeparator());
 				}
 			} while (reader.ready() && line != null);
-			initializeFigure(board.trim());
+			initializeFigure(board.toString().trim());
 			
 		} catch (IOException e) {
 			org.apache.log4j.Logger.getRootLogger().fatal("Could not read board", e);
@@ -133,7 +133,6 @@ public class Board {
 	
 	public void print(PrintWriter writer) {
 		writer.print(this.toString());
-		writer.flush();
 	}
 	
 	public Field getField(int x, int y) {
