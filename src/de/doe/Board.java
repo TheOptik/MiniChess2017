@@ -47,7 +47,7 @@ public class Board {
   public Board(String board) {
     initalizeField();
     String[] lines = board.split(System.lineSeparator());
-    String[] firstLine = lines[0].split("/s");
+    String[] firstLine = lines[0].split(" ");
     turn = Integer.parseInt(firstLine[0]);
     activePlayer = Player.fromChar(firstLine[1].charAt(0));
 
@@ -67,6 +67,7 @@ public class Board {
           case 'Q': this.board[i - 1][j].figure = Figure.WHITE_QUEEN; break;
           case 'k': this.board[i - 1][j].figure = Figure.BLACK_KING; break;
           case 'K': this.board[i - 1][j].figure = Figure.WHITE_KING; break;
+          case '.': this.board[i - 1][j].figure = null; break;
         }
       }
 
