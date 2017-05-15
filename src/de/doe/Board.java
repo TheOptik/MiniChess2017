@@ -7,12 +7,15 @@ import de.doe.figures.Figure;
 
 public class Board {
 	
-	protected Field[][] board = new Field[5][6];
+	protected Field[][] board = new Field[6][5];
 	protected Player activePlayer;
-	protected int turn = 1;
+	protected int turn;
 	
 	public Board() {
+	  initalizeField();
 		activePlayer = Player.WHITE;
+		turn = 1;
+		
 		
 		board[0][0].figure = Figure.BLACK_KING;
 		board[0][1].figure = Figure.BLACK_QUEEN;
@@ -33,7 +36,15 @@ public class Board {
 		
 	}
 	
-	public Board(String board) {
+	private void initalizeField() {
+      for(int y = 0; y < board.length; y++){
+        for(int x = 0; x < board[0].length; x++){
+          board[y][x] = new Field(null);
+        }
+      }
+  }
+
+  public Board(String board) {
 		String[] lines = board.split(System.lineSeparator());
 	}
 	
