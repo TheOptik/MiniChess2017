@@ -26,8 +26,8 @@ public abstract class Figure {
 	public static final Figure BLACK_KING = new King(Player.BLACK);
 	
 	protected Player player;
-	
-	public Figure(Player player) {
+
+  public Figure(Player player) {
 		this.player = player;
 	}
 	
@@ -59,4 +59,7 @@ public abstract class Figure {
 		return new HashCodeBuilder(17, 37).append(this.getClass().getName()).append(player).toHashCode();
 	}
 	
+	   public Player getPlayer() {
+	     return player;
+	   }
 }

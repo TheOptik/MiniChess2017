@@ -18,7 +18,14 @@ public class Move {
 		
 	}
 	
-	@Override
+	public Move(Player player, int fromX, int fromY, int toX, int toY) {
+    super();
+    this.player = player;
+    this.from = new Coordinate(fromX, fromY);
+    this.to = new Coordinate(toX, toY);
+  }
+
+  @Override
 	public String toString() {
 		return "From: " + from.toString() + " To: " + to.toString();
 	}
