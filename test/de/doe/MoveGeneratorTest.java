@@ -9,8 +9,8 @@ import org.junit.Test;
 public class MoveGeneratorTest {
 
   @Test
-  public void generateAllPawnMovesAndCheckSize() throws Exception {
-    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", "..P..", ".....", ".....", "....."));
+  public void generateAllWhitePawnMovesAndCheckSize() throws Exception {
+    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", ".....", "..P..", ".....", ".....", "....."));
     MoveGenerator generator = new MoveGenerator(board);
     List<Move> moves = generator.getAllMoves();
 
@@ -18,16 +18,28 @@ public class MoveGeneratorTest {
   }
   
   @Test
-  public void generateAndCheckAllPawnMoves() throws Exception {
-    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", "..P..", ".....", ".....", "....."));
+  public void generateAndCheckAllWhitePawnMoves() throws Exception {
+    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", ".....", "..P..", ".....", ".....", "....."));
     MoveGenerator generator = new MoveGenerator(board);
     List<Move> moves = generator.getAllMoves();
 
     assertEquals(1, moves.size());
     
-    assertTrue(moves.contains(new Move(Player.WHITE, 2, 2, 2, 3)));
+    assertTrue(moves.contains(new Move(Player.WHITE, 2, 2, 2, 1)));
   }
 
+  public void generateAndCheckAllBlackPawnMoves() throws Exception {
+    Board board = new Board(TestUtils.getMultilineString("1 B", ".....", ".....", "..p..", ".....", ".....", "....."));
+    MoveGenerator generator = new MoveGenerator(board);
+    List<Move> moves = generator.getAllMoves();
+
+    assertEquals(1, moves.size());
+    
+    moves.forEach(System.out::println);
+    
+    assertTrue(moves.contains(new Move(Player.WHITE, 2, 2, 2, 3)));
+  }  
+  
   @Test
   public void generateAllRookMovesAndCheckSize() throws Exception {
 
@@ -129,7 +141,7 @@ public class MoveGeneratorTest {
 
   @Test
   public void generateAndCheckAllQueensMoves() throws Exception {
-    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", ".....", "..Q..", ".....", "....."));
+    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", ".....", "..Q..", ".....", ".....","....."));
     MoveGenerator generator = new MoveGenerator(board);
     List<Move> moves = generator.getAllMoves();
 
