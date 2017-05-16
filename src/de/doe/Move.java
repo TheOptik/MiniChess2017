@@ -7,10 +7,11 @@ public class Move {
 	Coordinate to;
 	
 	public Move(String move, Player player) {
-		move = move.toLowerCase();
+		
+		String lowerCaseMove = move.toLowerCase();
 		this.player = player;
 		
-		String[] parts = move.split("-");
+		String[] parts = lowerCaseMove.split("-");
 		
 		from = new Coordinate(5 - (parts[0].charAt(0) - 'a'), parts[0].charAt(1) - '1');
 		to = new Coordinate(5 - (parts[1].charAt(0) - 'a'), parts[1].charAt(1) - '1');
