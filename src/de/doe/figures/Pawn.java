@@ -13,14 +13,14 @@ public class Pawn extends Figure {
 
   static {
     moveModesBlack = new ArrayList<>();
-    moveModesBlack.add(new MoveMode(-1, -1, true, MoveMode.CAPUTRE_MODE_MUST));
-    moveModesBlack.add(new MoveMode(0, -1, true, MoveMode.CAPUTRE_MODE_NO));
-    moveModesBlack.add(new MoveMode(1, -1, true, MoveMode.CAPUTRE_MODE_MUST));
+    moveModesBlack.add(new MoveMode(-1, -1, true, MoveMode.CAPUTRE_MODE_MUST,false));
+    moveModesBlack.add(new MoveMode(0, -1, true, MoveMode.CAPUTRE_MODE_NO,false));
+    moveModesBlack.add(new MoveMode(1, -1, true, MoveMode.CAPUTRE_MODE_MUST,false));
   
     moveModesWhite = new ArrayList<>();
-    moveModesWhite.add(new MoveMode(-1, 1, true, MoveMode.CAPUTRE_MODE_MUST));
-    moveModesWhite.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_NO));
-    moveModesWhite.add(new MoveMode(1, 1, true, MoveMode.CAPUTRE_MODE_MUST));
+    moveModesWhite.add(new MoveMode(-1, 1, true, MoveMode.CAPUTRE_MODE_MUST,false));
+    moveModesWhite.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_NO,false));
+    moveModesWhite.add(new MoveMode(1, 1, true, MoveMode.CAPUTRE_MODE_MUST,false));
   }
 
 

@@ -13,8 +13,8 @@ public class Queen extends Figure {
   
   static{
     moveModes = new ArrayList<>();
-    moveModes.add(new MoveMode(1, 1, false, MoveMode.CAPUTRE_MODE_CAN));
-    moveModes.add(new MoveMode(0, 1, false, MoveMode.CAPUTRE_MODE_CAN));
+    moveModes.add(new MoveMode(1, 1, false, MoveMode.CAPUTRE_MODE_CAN,true));
+    moveModes.add(new MoveMode(0, 1, false, MoveMode.CAPUTRE_MODE_CAN,true));
   }
   
 	public Queen(Player player) {

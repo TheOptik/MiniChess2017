@@ -13,8 +13,8 @@ public class Bishop extends Figure {
   
   static{
     moveModes = new ArrayList<>();
-    moveModes.add(new MoveMode(1, 1, false, MoveMode.CAPUTRE_MODE_CAN));
-    moveModes.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_NO));
+    moveModes.add(new MoveMode(1, 1, false, MoveMode.CAPUTRE_MODE_CAN,true));
+    moveModes.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_NO,true));
   }
   
   public Bishop(Player player) {

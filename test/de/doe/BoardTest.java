@@ -49,7 +49,7 @@ public class BoardTest {
 	@Test
 	public void readBoardLayoutStringTest() throws Exception {
 		
-		Board board = new Board(getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."));
+		Board board = new Board(TestUtils.getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."));
 		
 		// Test board parameter
 		assertEquals(board.turn, 20);
@@ -81,7 +81,7 @@ public class BoardTest {
 	public void boardLayoutReaderTest() throws Exception {
 		
 		Board board = new Board(new BufferedReader(
-				new StringReader(getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."))));
+				new StringReader(TestUtils.getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."))));
 		
 		// Test board parameter
 		assertEquals(board.turn, 20);
@@ -109,13 +109,6 @@ public class BoardTest {
 		}
 	}
 	
-	private String getMultilineString(String... strings) {
-		StringBuilder resultBuilder = new StringBuilder();
-		for (String s : strings) {
-			resultBuilder.append(s).append(System.lineSeparator());
-		}
-		return resultBuilder.toString();
-	}
 	
 	/**
 	 * this method is to turn around the arguments for the JUnit-Assertion

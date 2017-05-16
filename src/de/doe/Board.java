@@ -9,7 +9,7 @@ import de.doe.figures.Figure;
 
 public class Board {
 	
-	protected Field[][] fields = new Field[6][5];
+	protected Field[][] fields = new Field[5][6];
 	protected Player activePlayer;
 	protected int turn;
 	
@@ -19,21 +19,21 @@ public class Board {
 		turn = 1;
 		
 		fields[0][0].figure = Figure.BLACK_KING;
-		fields[0][1].figure = Figure.BLACK_QUEEN;
-		fields[0][2].figure = Figure.BLACK_BISHOP;
-		fields[0][3].figure = Figure.BLACK_KNIGHT;
-		fields[0][4].figure = Figure.BLACK_ROOK;
+		fields[1][0].figure = Figure.BLACK_QUEEN;
+		fields[2][0].figure = Figure.BLACK_BISHOP;
+		fields[3][0].figure = Figure.BLACK_KNIGHT;
+		fields[4][0].figure = Figure.BLACK_ROOK;
 		
 		for (int i = 0; i <= 4; i++) {
-			fields[1][i].figure = Figure.BLACK_PAWN;
-			fields[4][i].figure = Figure.WHITE_PAWN;
+			fields[i][1].figure = Figure.BLACK_PAWN;
+			fields[i][4].figure = Figure.WHITE_PAWN;
 		}
 		
-		fields[5][0].figure = Figure.WHITE_ROOK;
-		fields[5][1].figure = Figure.WHITE_KNIGHT;
-		fields[5][2].figure = Figure.WHITE_BISHOP;
-		fields[5][3].figure = Figure.WHITE_QUEEN;
-		fields[5][4].figure = Figure.WHITE_KING;
+		fields[0][5].figure = Figure.WHITE_ROOK;
+		fields[1][5].figure = Figure.WHITE_KNIGHT;
+		fields[2][5].figure = Figure.WHITE_BISHOP;
+		fields[3][5].figure = Figure.WHITE_QUEEN;
+		fields[4][5].figure = Figure.WHITE_KING;
 		
 	}
 	
@@ -70,9 +70,9 @@ public class Board {
 	}
 	
 	private void initalizeField() {
-		for (int y = 0; y < fields.length; y++) {
-			for (int x = 0; x < fields[0].length; x++) {
-				fields[y][x] = new Field(null);
+		for (int x = 0; x < fields.length; x++) {
+			for (int y = 0; y < fields[0].length; y++) {
+				fields[x][y] = new Field(null);
 			}
 		}
 	}
@@ -88,46 +88,46 @@ public class Board {
 			for (int j = 0; j < charLine.length; j++) {
 				switch (charLine[j]) {
 				case 'p':
-					this.fields[i - 1][j].figure = Figure.BLACK_PAWN;
+					this.fields[j][i - 1].figure = Figure.BLACK_PAWN;
 					break;
 				case 'P':
-					this.fields[i - 1][j].figure = Figure.WHITE_PAWN;
+					this.fields[j][i - 1].figure = Figure.WHITE_PAWN;
 					break;
 				case 'r':
-					this.fields[i - 1][j].figure = Figure.BLACK_ROOK;
+					this.fields[j][i - 1].figure = Figure.BLACK_ROOK;
 					break;
 				case 'R':
-					this.fields[i - 1][j].figure = Figure.WHITE_ROOK;
+					this.fields[j][i - 1].figure = Figure.WHITE_ROOK;
 					break;
 				case 'n':
-					this.fields[i - 1][j].figure = Figure.BLACK_KNIGHT;
+					this.fields[j][i - 1].figure = Figure.BLACK_KNIGHT;
 					break;
 				case 'N':
-					this.fields[i - 1][j].figure = Figure.WHITE_KNIGHT;
+					this.fields[j][i - 1].figure = Figure.WHITE_KNIGHT;
 					break;
 				case 'b':
-					this.fields[i - 1][j].figure = Figure.BLACK_BISHOP;
+					this.fields[j][i - 1].figure = Figure.BLACK_BISHOP;
 					break;
 				case 'B':
-					this.fields[i - 1][j].figure = Figure.WHITE_BISHOP;
+					this.fields[j][i - 1].figure = Figure.WHITE_BISHOP;
 					break;
 				case 'q':
-					this.fields[i - 1][j].figure = Figure.BLACK_QUEEN;
+					this.fields[j][i - 1].figure = Figure.BLACK_QUEEN;
 					break;
 				case 'Q':
-					this.fields[i - 1][j].figure = Figure.WHITE_QUEEN;
+					this.fields[j][i - 1].figure = Figure.WHITE_QUEEN;
 					break;
 				case 'k':
-					this.fields[i - 1][j].figure = Figure.BLACK_KING;
+					this.fields[j][i - 1].figure = Figure.BLACK_KING;
 					break;
 				case 'K':
-					this.fields[i - 1][j].figure = Figure.WHITE_KING;
+					this.fields[j][i - 1].figure = Figure.WHITE_KING;
 					break;
 				case '.':
-					this.fields[i - 1][j].figure = null;
+					this.fields[j][i - 1].figure = null;
 					break;
 				default:
-					this.fields[i - 1][j].figure = null;
+					this.fields[j][i - 1].figure = null;
 				}
 			}
 			
@@ -138,9 +138,9 @@ public class Board {
 		
 		if (move.player.equals(activePlayer)) {
 			Board result = new Board(this);
-			Figure fig = result.fields[move.from.y][move.from.x].figure;
-			result.fields[move.from.y][move.from.x].figure = null;
-			result.fields[move.to.y][move.to.x].figure = fig;
+			Figure fig = result.fields[move.from.x][move.from.y].figure;
+			result.fields[move.from.x][move.from.y].figure = null;
+			result.fields[move.to.x][move.to.y].figure = fig;
 			
 			return result;
 		} else {
@@ -159,6 +159,6 @@ public class Board {
 	
 	public Field getField(int x, int y) {
 		
-		return fields[y][x];
+		return fields[x][y];
 	}
 }

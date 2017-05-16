@@ -13,8 +13,8 @@ public class Knight extends Figure {
   
   static{
     moveModes = new ArrayList<>();
-    moveModes.add(new MoveMode(1, 2, true, MoveMode.CAPUTRE_MODE_CAN));
-    moveModes.add(new MoveMode(-1, 2, true, MoveMode.CAPUTRE_MODE_CAN));
+    moveModes.add(new MoveMode(1, 2, true, MoveMode.CAPUTRE_MODE_CAN,true));
+    moveModes.add(new MoveMode(-1, 2, true, MoveMode.CAPUTRE_MODE_CAN,true));
   }
   
   
