@@ -10,14 +10,14 @@ public class MiniChessLauncher {
 	
 	public static void main(String[] args) {
 		
-		// playRandom();
-		playOnline();
+		playRandom();
+		//playOnline();
 		
 	}
 	
 	private static void playOnline() {
 		
-		String id = "12987";
+		String id = "13138";
 		Board board = new Board();
 		Move move;
 		

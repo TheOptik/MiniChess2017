@@ -44,8 +44,8 @@ public class Move {
     // is
     // wrong
 
-    resultBuilder.append((char) ('a' + from.x)).append((char) ('1' + from.y)).append("-")
-        .append((char) ('a' + to.x)).append((char) ('1' + to.y));
+    resultBuilder.append((char) ('a' + from.x)).append((char) ('6' - from.y)).append("-")
+        .append((char) ('a' + to.x)).append((char) ('6' - to.y));
 
     return resultBuilder.toString();
   }
