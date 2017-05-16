@@ -11,4 +11,8 @@ public enum Player {
 		}
 		throw new IllegalArgumentException("Player identifier '" + c + "' is not valid.");
 	}
+	
+	public char toChar() {
+		return this.equals(WHITE) ? 'W' : 'B';
+	}
 }

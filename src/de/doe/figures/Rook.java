@@ -23,4 +23,10 @@ public class Rook extends Figure {
 	public List<MoveMode> getAllMoveModes() {
 		return moveModes;
 	}
+	
+	@Override
+	public String toString() {
+		return Character.toString(player.equals(Player.WHITE) ? Figure.WHITE_ROOK_CODE : Figure.BLACK_ROOK_CODE);
+	}
+	
 }

@@ -1,6 +1,5 @@
 package de.doe.figures;
 
-
 import java.util.List;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -25,9 +24,24 @@ public abstract class Figure {
 	public static final Figure BLACK_QUEEN = new Queen(Player.BLACK);
 	public static final Figure BLACK_KING = new King(Player.BLACK);
 	
+	public static final char WHITE_PAWN_CODE = 'P';
+	public static final char WHITE_ROOK_CODE = 'R';
+	public static final char WHITE_KNIGHT_CODE = 'N';
+	public static final char WHITE_BISHOP_CODE = 'B';
+	public static final char WHITE_QUEEN_CODE = 'Q';
+	public static final char WHITE_KING_CODE = 'K';
+	
+	public static final char BLACK_PAWN_CODE = 'p';
+	public static final char BLACK_ROOK_CODE = 'r';
+	public static final char BLACK_KNIGHT_CODE = 'n';
+	public static final char BLACK_BISHOP_CODE = 'b';
+	public static final char BLACK_QUEEN_CODE = 'q';
+	public static final char BLACK_KING_CODE = 'k';
+	public static final char NONE_CODE = '.';
+	
 	protected Player player;
-
-  public Figure(Player player) {
+	
+	public Figure(Player player) {
 		this.player = player;
 	}
 	
@@ -46,20 +60,15 @@ public abstract class Figure {
 				.append(player, figure.player).isEquals();
 	}
 	
-    public abstract List<MoveMode> getAllMoveModes();
-	
-	@Override
-	public String toString() {
-		
-		return this.player + " " + this.getClass().getName();
-	}
+	public abstract List<MoveMode> getAllMoveModes();
 	
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 37).append(this.getClass().getName()).append(player).toHashCode();
 	}
 	
-	   public Player getPlayer() {
-	     return player;
-	   }
+	public Player getPlayer() {
+		return player;
+	}
+	
 }

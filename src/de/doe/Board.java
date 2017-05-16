@@ -87,43 +87,43 @@ public class Board {
 			char[] charLine = lines[i].toCharArray();
 			for (int j = 0; j < charLine.length; j++) {
 				switch (charLine[j]) {
-				case 'p':
+				case Figure.BLACK_PAWN_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_PAWN;
 					break;
-				case 'P':
+				case Figure.WHITE_PAWN_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_PAWN;
 					break;
-				case 'r':
+				case Figure.BLACK_ROOK_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_ROOK;
 					break;
-				case 'R':
+				case Figure.WHITE_ROOK_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_ROOK;
 					break;
-				case 'n':
+				case Figure.BLACK_KNIGHT_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_KNIGHT;
 					break;
-				case 'N':
+				case Figure.WHITE_KNIGHT_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_KNIGHT;
 					break;
-				case 'b':
+				case Figure.BLACK_BISHOP_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_BISHOP;
 					break;
-				case 'B':
+				case Figure.WHITE_BISHOP_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_BISHOP;
 					break;
-				case 'q':
+				case Figure.BLACK_QUEEN_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_QUEEN;
 					break;
-				case 'Q':
+				case Figure.WHITE_QUEEN_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_QUEEN;
 					break;
-				case 'k':
+				case Figure.BLACK_KING_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_KING;
 					break;
-				case 'K':
+				case Figure.WHITE_KING_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_KING;
 					break;
-				case '.':
+				case Figure.NONE_CODE:
 					this.fields[j][i - 1].figure = null;
 					break;
 				default:
@@ -142,6 +142,9 @@ public class Board {
 			result.fields[move.from.x][move.from.y].figure = null;
 			result.fields[move.to.x][move.to.y].figure = fig;
 			
+			result.activePlayer = activePlayer.equals(Player.WHITE) ? Player.BLACK : Player.WHITE;
+			result.turn = turn + 1;
+			
 			return result;
 		} else {
 			throw new IllegalArgumentException("It is not " + move.player + "'s turn!");
@@ -150,7 +153,23 @@ public class Board {
 	
 	@Override
 	public String toString() {
-		return Arrays.deepToString(fields);
+		StringBuilder resultBuilder = new StringBuilder();
+		
+		resultBuilder.append(turn).append(" ").append(activePlayer.toChar()).append(System.lineSeparator());
+		
+		for (int y = 0; y < fields[0].length; y++) {
+			for (int x = 0; x < fields.length; x++) {
+				Field field = fields[x][y];
+				if (field.figure != null) {
+					resultBuilder.append(field.figure.toString());
+				} else {
+					resultBuilder.append('.');
+				}
+			}
+			resultBuilder.append(System.lineSeparator());
+		}
+		
+		return resultBuilder.toString();
 	}
 	
 	public void print(PrintWriter writer) {
