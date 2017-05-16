@@ -1,8 +1,12 @@
 package de.doe.figures;
 
+
+import java.util.List;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import de.doe.MoveMode;
 import de.doe.Player;
 
 public abstract class Figure {
@@ -41,6 +45,8 @@ public abstract class Figure {
 		return new EqualsBuilder().append(this.getClass().getName(), figure.getClass().getName())
 				.append(player, figure.player).isEquals();
 	}
+	
+    public abstract List<MoveMode> getAllMoveModes();
 	
 	@Override
 	public String toString() {
