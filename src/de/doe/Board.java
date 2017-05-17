@@ -27,22 +27,33 @@ public class Board {
 		turn = 1;
 		
 		fields[0][0].figure = Figure.BLACK_KING;
+		blackFigures.add(Figure.BLACK_KING);
 		fields[1][0].figure = Figure.BLACK_QUEEN;
+		blackFigures.add(Figure.BLACK_QUEEN);
 		fields[2][0].figure = Figure.BLACK_BISHOP;
+		blackFigures.add(Figure.BLACK_BISHOP);
 		fields[3][0].figure = Figure.BLACK_KNIGHT;
+		blackFigures.add(Figure.BLACK_KNIGHT);
 		fields[4][0].figure = Figure.BLACK_ROOK;
+		blackFigures.add(Figure.BLACK_ROOK);
 		
 		for (int i = 0; i <= 4; i++) {
 			fields[i][1].figure = Figure.BLACK_PAWN;
+			blackFigures.add(Figure.BLACK_PAWN);
 			fields[i][4].figure = Figure.WHITE_PAWN;
+			whiteFigures.add(Figure.WHITE_PAWN);
 		}
 		
 		fields[0][5].figure = Figure.WHITE_ROOK;
+		whiteFigures.add(Figure.WHITE_ROOK);
 		fields[1][5].figure = Figure.WHITE_KNIGHT;
+		whiteFigures.add(Figure.WHITE_KNIGHT);
 		fields[2][5].figure = Figure.WHITE_BISHOP;
+		whiteFigures.add(Figure.WHITE_BISHOP);
 		fields[3][5].figure = Figure.WHITE_QUEEN;
+		whiteFigures.add(Figure.WHITE_QUEEN);
 		fields[4][5].figure = Figure.WHITE_KING;
-		
+		whiteFigures.add(Figure.WHITE_KING);
 	}
 	
 	public Board(String board) {
