@@ -199,6 +199,16 @@ public class MoveGeneratorTest {
     MoveGenerator generator = new MoveGenerator(board);
     List<Move> moves = generator.getAllMoves();
 
+    
+    
+    assertEquals(7, moves.size());
+  }
+  
+  public void generateAllGameMovesAndCheckSize() throws Exception {
+    Board board = new Board(TestUtils.getMultilineString("2 W", "kqbnr", "ppppp", ".....", ".P...", "PPPPP", "RNBQK"));
+    MoveGenerator generator = new MoveGenerator(board);
+    List<Move> moves = generator.getAllMoves();
+ 
     assertEquals(7, moves.size());
   }
 }

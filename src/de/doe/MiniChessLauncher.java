@@ -17,7 +17,7 @@ public class MiniChessLauncher {
 	
 	private static void playOnline() throws InterruptedException {
 		
-		String id = "13405";
+		String id = "13409";
 		Board board = new Board();
 		Move move;
 		
