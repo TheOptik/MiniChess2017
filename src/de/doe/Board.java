@@ -104,33 +104,43 @@ public class Board {
 					break;
 				case Figure.WHITE_PAWN_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_PAWN;
+					whiteFigures.add(Figure.WHITE_PAWN);
 					break;
 				case Figure.BLACK_ROOK_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_ROOK;
+					blackFigures.add(Figure.BLACK_ROOK);
 					break;
 				case Figure.WHITE_ROOK_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_ROOK;
+					whiteFigures.add(Figure.WHITE_ROOK);
 					break;
 				case Figure.BLACK_KNIGHT_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_KNIGHT;
+					blackFigures.add(Figure.BLACK_KNIGHT);
 					break;
 				case Figure.WHITE_KNIGHT_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_KNIGHT;
+					whiteFigures.add(Figure.WHITE_KNIGHT);
 					break;
 				case Figure.BLACK_BISHOP_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_BISHOP;
+					blackFigures.add(Figure.BLACK_BISHOP);
 					break;
 				case Figure.WHITE_BISHOP_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_BISHOP;
+					whiteFigures.add(Figure.WHITE_BISHOP);
 					break;
 				case Figure.BLACK_QUEEN_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_QUEEN;
+					blackFigures.add(Figure.BLACK_QUEEN);
 					break;
 				case Figure.WHITE_QUEEN_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_QUEEN;
+					whiteFigures.add(Figure.WHITE_QUEEN);
 					break;
 				case Figure.BLACK_KING_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_KING;
+					blackFigures.add(Figure.BLACK_KING);
 					break;
 				case Figure.WHITE_KING_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_KING;
