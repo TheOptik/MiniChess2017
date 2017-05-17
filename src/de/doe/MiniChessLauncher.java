@@ -10,8 +10,8 @@ public class MiniChessLauncher {
 	
 	public static void main(String[] args) {
 		
-		playRandom();
-		//playOnline();
+		//playRandom();
+		playOnline();
 		
 	}
 	
