@@ -19,8 +19,11 @@ public class RandomPlayer extends AbstractPlayer {
 		MoveGenerator generator = new MoveGenerator(board);
 		
 		List<Move> moves = generator.getAllMoves();
-		
-		return moves.get((int) (Math.random() * moves.size()));
+		if (moves.size() > 0) {
+			return moves.get((int) (Math.random() * moves.size()));
+		} else {
+			return null;
+		}
 	}
 	
 }

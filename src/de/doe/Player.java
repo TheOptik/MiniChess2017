@@ -15,4 +15,12 @@ public enum Player {
 	public char toChar() {
 		return this.equals(WHITE) ? 'W' : 'B';
 	}
+	
+	public Player other() {
+		if (this.equals(WHITE)) {
+			return Player.BLACK;
+		} else {
+			return Player.WHITE;
+		}
+	}
 }

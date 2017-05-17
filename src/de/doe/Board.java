@@ -13,6 +13,10 @@ public class Board {
 	protected Player activePlayer;
 	protected int turn;
 	
+	protected boolean isGameOver = false;
+	protected boolean isDraw = false;
+	protected Player winner;
+	
 	public Board() {
 		initalizeField();
 		activePlayer = Player.WHITE;
@@ -135,15 +139,28 @@ public class Board {
 	}
 	
 	public Board move(Move move) {
-		
+		if (move == null) {
+			isGameOver = true;
+			winner = activePlayer.other();
+			return this;
+		}
 		if (move.player.equals(activePlayer)) {
 			Board result = new Board(this);
 			Figure fig = result.fields[move.from.x][move.from.y].figure;
 			result.fields[move.from.x][move.from.y].figure = null;
+			if (result.fields[move.to.x][move.to.y].figure != null
+					&& (result.fields[move.to.x][move.to.y].figure.equals(Figure.WHITE_KING)
+							|| result.fields[move.to.x][move.to.y].figure.equals(Figure.BLACK_KING))) {
+				result.isGameOver = true;
+				result.winner = activePlayer;
+			}
 			result.fields[move.to.x][move.to.y].figure = fig;
 			
-			result.activePlayer = activePlayer.equals(Player.WHITE) ? Player.BLACK : Player.WHITE;
-			result.turn = turn + 1;
+			result.activePlayer = activePlayer.other();
+			result.turn++;
+			if (result.turn >= 40) {
+				result.isDraw = true;
+			}
 			
 			return result;
 		} else {
@@ -179,5 +196,9 @@ public class Board {
 	public Field getField(int x, int y) {
 		
 		return fields[x][y];
+	}
+	
+	public boolean isGameOver() {
+		return isGameOver;
 	}
 }
