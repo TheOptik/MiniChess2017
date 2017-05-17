@@ -192,4 +192,13 @@ public class MoveGeneratorTest {
     assertTrue(moves.contains(new Move(Player.WHITE, 2, 2, 2, 1)));
     assertTrue(moves.contains(new Move(Player.WHITE, 2, 2, 3, 1)));
   }
+  
+  @Test
+  public void generateAllFiguresMovesAndCheckSize() throws Exception {
+    Board board = new Board(TestUtils.getMultilineString("1 W", ".....", ".....", ".....", ".....", "PPPPP", "RNBQK"));
+    MoveGenerator generator = new MoveGenerator(board);
+    List<Move> moves = generator.getAllMoves();
+
+    assertEquals(7, moves.size());
+  }
 }
