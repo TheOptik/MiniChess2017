@@ -9,23 +9,23 @@ import java.util.List;
 import de.doe.figures.Figure;
 
 public class Board {
-	
+
 	protected Field[][] fields = new Field[5][6];
 	protected Player activePlayer;
 	protected int turn;
-	
+
 	protected boolean isGameOver = false;
 	protected boolean isDraw = false;
 	protected Player winner;
-	
+
 	protected List<Figure> whiteFigures = new ArrayList<>();
 	protected List<Figure> blackFigures = new ArrayList<>();
-	
+
 	public Board() {
 		initalizeField();
 		activePlayer = Player.WHITE;
 		turn = 1;
-		
+
 		fields[0][0].figure = Figure.BLACK_KING;
 		blackFigures.add(Figure.BLACK_KING);
 		fields[1][0].figure = Figure.BLACK_QUEEN;
@@ -36,14 +36,14 @@ public class Board {
 		blackFigures.add(Figure.BLACK_KNIGHT);
 		fields[4][0].figure = Figure.BLACK_ROOK;
 		blackFigures.add(Figure.BLACK_ROOK);
-		
+
 		for (int i = 0; i <= 4; i++) {
 			fields[i][1].figure = Figure.BLACK_PAWN;
 			blackFigures.add(Figure.BLACK_PAWN);
 			fields[i][4].figure = Figure.WHITE_PAWN;
 			whiteFigures.add(Figure.WHITE_PAWN);
 		}
-		
+
 		fields[0][5].figure = Figure.WHITE_ROOK;
 		whiteFigures.add(Figure.WHITE_ROOK);
 		fields[1][5].figure = Figure.WHITE_KNIGHT;
@@ -55,17 +55,17 @@ public class Board {
 		fields[4][5].figure = Figure.WHITE_KING;
 		whiteFigures.add(Figure.WHITE_KING);
 	}
-	
+
 	public Board(String board) {
 		initalizeField();
 		initializeFigure(board);
 	}
-	
+
 	public Board(BufferedReader reader) {
 		initalizeField();
 		StringBuilder board = new StringBuilder();
 		String line;
-		
+
 		try {
 			do {
 				line = reader.readLine();
@@ -74,12 +74,12 @@ public class Board {
 				}
 			} while (reader.ready() && line != null);
 			initializeFigure(board.toString().trim());
-			
+
 		} catch (IOException e) {
 			org.apache.log4j.Logger.getRootLogger().fatal("Could not read board", e);
 		}
 	}
-	
+
 	private void initalizeField() {
 		for (int x = 0; x < fields.length; x++) {
 			for (int y = 0; y < fields[0].length; y++) {
@@ -87,13 +87,13 @@ public class Board {
 			}
 		}
 	}
-	
+
 	private void initializeFigure(String board) {
 		String[] lines = board.split(System.lineSeparator());
 		String[] firstLine = lines[0].split(" ");
 		turn = Integer.parseInt(firstLine[0]);
 		activePlayer = Player.fromChar(firstLine[1].charAt(0));
-		
+
 		for (int i = 1; i < lines.length; i++) {
 			char[] charLine = lines[i].toCharArray();
 			for (int j = 0; j < charLine.length; j++) {
@@ -153,10 +153,10 @@ public class Board {
 					this.fields[j][i - 1].figure = null;
 				}
 			}
-			
+
 		}
 	}
-	
+
 	public Board move(Move move) {
 		Board result = new Board(this.toString());
 		if (move == null) {
@@ -164,7 +164,7 @@ public class Board {
 			result.winner = activePlayer.other();
 			return result;
 		}
-		
+
 		if (move.player.equals(activePlayer)) {
 			Figure fig = result.fields[move.from.x][move.from.y].figure;
 			result.fields[move.from.x][move.from.y].figure = null;
@@ -175,25 +175,25 @@ public class Board {
 				result.winner = activePlayer;
 			}
 			result.fields[move.to.x][move.to.y].figure = fig;
-			
+
 			result.activePlayer = activePlayer.other();
 			result.turn++;
 			if (result.turn >= 40) {
 				result.isDraw = true;
 			}
-			
+
 			return result;
 		} else {
 			throw new IllegalArgumentException("It is not " + move.player + "'s turn!");
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder resultBuilder = new StringBuilder();
-		
+
 		resultBuilder.append(turn).append(" ").append(activePlayer.toChar()).append(System.lineSeparator());
-		
+
 		for (int y = 0; y < fields[0].length; y++) {
 			for (int x = 0; x < fields.length; x++) {
 				Field field = fields[x][y];
@@ -205,14 +205,14 @@ public class Board {
 			}
 			resultBuilder.append(System.lineSeparator());
 		}
-		
+
 		return resultBuilder.toString();
 	}
-	
+
 	public void print(PrintWriter writer) {
 		writer.print(this.toString());
 	}
-	
+
 	public List<Figure> getAllFiguresForPlayer(Player player) {
 		if (player.equals(Player.WHITE)) {
 			return whiteFigures;
@@ -220,12 +220,12 @@ public class Board {
 			return blackFigures;
 		}
 	}
-	
+
 	public Field getField(int x, int y) {
-		
+
 		return fields[x][y];
 	}
-	
+
 	public boolean isGameOver() {
 		return isGameOver;
 	}

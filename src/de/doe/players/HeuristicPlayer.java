@@ -6,15 +6,15 @@ import de.doe.Board;
 import de.doe.Move;
 import de.doe.MoveGenerator;
 import de.doe.Player;
-import heuristics.StateEvaluator;
+import heuristics.BoardEvaluator;
 
 public class HeuristicPlayer extends AbstractPlayer {
 	
-	StateEvaluator evaluator;
+	BoardEvaluator evaluator;
 	
 	public HeuristicPlayer(Player player) {
 		super(player);
-		evaluator = new StateEvaluator(player);
+		evaluator = new BoardEvaluator(player);
 	}
 	
 	@Override

@@ -7,7 +7,7 @@ import org.junit.Test;
 import de.doe.Board;
 import de.doe.Player;
 import de.doe.TestUtils;
-import heuristics.StateEvaluator;
+import heuristics.BoardEvaluator;
 
 public class StateEvaluatorTest {
 
@@ -23,8 +23,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(99, evalW.evaluate(board));
     assertEquals(-99, evalW.evaluate(board1));
@@ -43,8 +43,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".Q...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".q...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(8, evalW.evaluate(board));
     assertEquals(-8, evalW.evaluate(board1));
@@ -63,8 +63,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".B...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".b...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(2, evalW.evaluate(board));
     assertEquals(-2, evalW.evaluate(board1));
@@ -83,8 +83,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".N...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".n...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(2, evalW.evaluate(board));
     assertEquals(-2, evalW.evaluate(board1));
@@ -103,8 +103,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".R...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".r...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(4, evalW.evaluate(board));
     assertEquals(-4, evalW.evaluate(board1));
@@ -123,8 +123,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".P...", ".....", ".....", ".....", ".....", ".p..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".p...", ".....", ".....", ".....", ".....", ".P..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -142,8 +142,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".r..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".R..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(95, evalW.evaluate(board));
     assertEquals(-95, evalW.evaluate(board1));
@@ -161,8 +161,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".Q...", ".....", ".....", ".....", ".....", ".r..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".q...", ".....", ".....", ".....", ".....", ".R..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(4, evalW.evaluate(board));
     assertEquals(-4, evalW.evaluate(board1));
@@ -180,8 +180,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".B...", ".....", ".....", ".....", ".....", ".r..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".b...", ".....", ".....", ".....", ".....", ".R..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(-2, evalW.evaluate(board));
     assertEquals(2, evalW.evaluate(board1));
@@ -199,8 +199,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".N...", ".....", ".....", ".....", ".....", ".r..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".n...", ".....", ".....", ".....", ".....", ".R..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(-2, evalW.evaluate(board));
     assertEquals(2, evalW.evaluate(board1));
@@ -218,8 +218,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".R...", ".....", ".....", ".....", ".....", ".r..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".r...", ".....", ".....", ".....", ".....", ".R..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -238,8 +238,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".n..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".N..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(97, evalW.evaluate(board));
     assertEquals(-97, evalW.evaluate(board1));
@@ -257,8 +257,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".Q...", ".....", ".....", ".....", ".....", ".n..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".q...", ".....", ".....", ".....", ".....", ".N..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
@@ -276,8 +276,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".B...", ".....", ".....", ".....", ".....", ".n..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".b...", ".....", ".....", ".....", ".....", ".N..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -295,8 +295,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".N...", ".....", ".....", ".....", ".....", ".n..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".n...", ".....", ".....", ".....", ".....", ".N..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -314,8 +314,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".b..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".B..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(97, evalW.evaluate(board));
     assertEquals(-97, evalW.evaluate(board1));
@@ -333,8 +333,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".Q...", ".....", ".....", ".....", ".....", ".b..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".q...", ".....", ".....", ".....", ".....", ".B..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
@@ -352,8 +352,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".B...", ".....", ".....", ".....", ".....", ".b..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".b...", ".....", ".....", ".....", ".....", ".B..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -371,8 +371,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".q..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".Q..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(91, evalW.evaluate(board));
     assertEquals(-91, evalW.evaluate(board1));
@@ -390,8 +390,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".Q...", ".....", ".....", ".....", ".....", ".q..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".q...", ".....", ".....", ".....", ".....", ".Q..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -409,8 +409,8 @@ public class StateEvaluatorTest {
         TestUtils.getMultilineString("1 B", ".K...", ".....", ".....", ".....", ".....", ".k..."));
     Board board3 = new Board(
         TestUtils.getMultilineString("1 B", ".k...", ".....", ".....", ".....", ".....", ".K..."));
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalW.evaluate(board1));
@@ -425,8 +425,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(101, evalW.evaluate(board));
     assertEquals(-101, evalW.evaluate(board1));
     assertEquals(-101, evalB.evaluate(board));
@@ -441,8 +441,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(10, evalW.evaluate(board));
     assertEquals(-10, evalW.evaluate(board1));
     assertEquals(-10, evalB.evaluate(board));
@@ -457,8 +457,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(4, evalW.evaluate(board));
     assertEquals(-4, evalW.evaluate(board1));
     assertEquals(-4, evalB.evaluate(board));
@@ -473,8 +473,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(4, evalW.evaluate(board));
     assertEquals(-4, evalW.evaluate(board1));
     assertEquals(-4, evalB.evaluate(board));
@@ -488,8 +488,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".r...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
     assertEquals(-6, evalB.evaluate(board));
@@ -504,8 +504,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".p...", ".....", ".....", ".....", ".....", ".p..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(2, evalW.evaluate(board));
     assertEquals(-2, evalW.evaluate(board1));
     assertEquals(-2, evalB.evaluate(board));
@@ -519,8 +519,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".r..."));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(105, evalW.evaluate(board));
     assertEquals(-105, evalW.evaluate(board1));
     assertEquals(-105, evalB.evaluate(board));
@@ -534,8 +534,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".r..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(14, evalW.evaluate(board));
     assertEquals(-14, evalW.evaluate(board1));
     assertEquals(-14, evalB.evaluate(board));
@@ -549,8 +549,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".r..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(8, evalW.evaluate(board));
     assertEquals(-8, evalW.evaluate(board1));
     assertEquals(-8, evalB.evaluate(board));
@@ -564,8 +564,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".r..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(8, evalW.evaluate(board));
     assertEquals(-8, evalW.evaluate(board1));
     assertEquals(-8, evalB.evaluate(board));
@@ -579,8 +579,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".r...", ".....", ".....", ".....", ".....", ".r..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(10, evalW.evaluate(board));
     assertEquals(-10, evalW.evaluate(board1));
     assertEquals(-10, evalB.evaluate(board));
@@ -595,8 +595,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".n..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(103, evalW.evaluate(board));
     assertEquals(-103, evalW.evaluate(board1));
     assertEquals(-103, evalB.evaluate(board));
@@ -610,8 +610,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".n..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(12, evalW.evaluate(board));
     assertEquals(-12, evalW.evaluate(board1));
     assertEquals(-12, evalB.evaluate(board));
@@ -625,8 +625,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".n..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
     assertEquals(-6, evalB.evaluate(board));
@@ -640,8 +640,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".n..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
     assertEquals(-6, evalB.evaluate(board));
@@ -655,8 +655,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".b..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(103, evalW.evaluate(board));
     assertEquals(-103, evalW.evaluate(board1));
     assertEquals(-103, evalB.evaluate(board));
@@ -670,8 +670,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".b..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(12, evalW.evaluate(board));
     assertEquals(-12, evalW.evaluate(board1));
     assertEquals(-12, evalB.evaluate(board));
@@ -685,8 +685,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".b..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(6, evalW.evaluate(board));
     assertEquals(-6, evalW.evaluate(board1));
     assertEquals(-6, evalB.evaluate(board));
@@ -700,8 +700,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".q..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(109, evalW.evaluate(board));
     assertEquals(-109, evalW.evaluate(board1));
     assertEquals(-109, evalB.evaluate(board));
@@ -715,8 +715,8 @@ public class StateEvaluatorTest {
     Board board1 = new Board(
         TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".q..."));
     
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(18, evalW.evaluate(board));
     assertEquals(-18, evalW.evaluate(board1));
     assertEquals(-18, evalB.evaluate(board));
@@ -728,8 +728,8 @@ public class StateEvaluatorTest {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", "kqbnr", "ppppp", ".....", ".....", "PPPPP", "RNBQK"));
 
-    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
-    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
+    BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
     assertEquals(0, evalW.evaluate(board));
     assertEquals(0, evalB.evaluate(board));
   }

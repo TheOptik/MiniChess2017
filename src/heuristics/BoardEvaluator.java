@@ -6,11 +6,11 @@ import de.doe.Board;
 import de.doe.Player;
 import de.doe.figures.Figure;
 
-public class StateEvaluator {
+public class BoardEvaluator {
 	
 	protected Player player;
 	
-	public StateEvaluator(Player player) {
+	public BoardEvaluator(Player player) {
 		this.player = player;
 	}
 	
