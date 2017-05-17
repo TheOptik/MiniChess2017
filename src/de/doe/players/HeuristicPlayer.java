@@ -31,7 +31,6 @@ public class HeuristicPlayer extends AbstractPlayer {
 				bestMove = move;
 			}
 		}
-		System.out.println(best + " " + bestMove);
 		return bestMove;
 	}
 	
