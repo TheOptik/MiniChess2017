@@ -8,16 +8,16 @@ import de.doe.players.RandomPlayer;
 
 public class MiniChessLauncher {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		//playRandom();
 		playOnline();
 		
 	}
 	
-	private static void playOnline() {
+	private static void playOnline() throws InterruptedException {
 		
-		String id = "13138";
+		String id = "13405";
 		Board board = new Board();
 		Move move;
 		
@@ -27,7 +27,9 @@ public class MiniChessLauncher {
 			char color = client.accept(id, '?');
 			Player remotePlayer = Player.fromChar(color);
 			
-			RandomPlayer bot = new RandomPlayer(remotePlayer.equals(Player.WHITE) ? Player.BLACK : Player.WHITE);
+			//RandomPlayer bot = new RandomPlayer(remotePlayer.equals(Player.WHITE) ? Player.BLACK : Player.WHITE);
+			RandomPlayer bot = new RandomPlayer(Player.BLACK);
+			
 			
 			if (remotePlayer.equals(Player.WHITE)) {
 				move = new Move(client.getMove().trim(), remotePlayer);
@@ -38,14 +40,17 @@ public class MiniChessLauncher {
 				
 				move = bot.getMove(board);
 				board = board.move(move);
+				System.out.println(board);
+				System.out.println("sending move: " + move.toChessString());
 				client.sendMove(move.toChessString());
 				
-				System.out.println(board);
+				
 				
 				move = new Move(client.getMove().trim(), remotePlayer);
 				board = board.move(move);
 				
 				System.out.println(board);
+				Thread.sleep(1000);
 			}
 			
 		} catch (IOException e) {

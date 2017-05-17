@@ -8,9 +8,10 @@ public class MoveTest {
 	
 	@Test
 	public void moveTest() throws Exception {
-		for(int i = 0; i <= 5; i++){
+	  for(int i = 0; i <= 5; i++){
 			for(int j = 0; j <= 4; j++ ){
-				System.out.println(new Move(Player.WHITE, j, i, j, i).toChessString());
+			  Move move = new Move(Player.WHITE, j, i, j, i);
+				System.out.println(move.toChessString() + " " + move.toString());
 			}
 		}
 	}
