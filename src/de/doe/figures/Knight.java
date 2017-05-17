@@ -16,9 +16,10 @@ public class Knight extends Figure {
 		moveModes.add(new MoveMode(-1, 2, true, MoveMode.CAPUTRE_MODE_CAN, true));
 	}
 	
-	public Knight(Player player) {
-		super(player);
+	public Knight(Player player,int value) {
+		super(player,value);
 	}
+	
 	
 	@Override
 	public List<MoveMode> getAllMoveModes() {

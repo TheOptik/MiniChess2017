@@ -10,19 +10,19 @@ import de.doe.Player;
 
 public abstract class Figure {
 	
-	public static final Figure WHITE_PAWN = new Pawn(Player.WHITE);
-	public static final Figure WHITE_ROOK = new Rook(Player.WHITE);
-	public static final Figure WHITE_KNIGHT = new Knight(Player.WHITE);
-	public static final Figure WHITE_BISHOP = new Bishop(Player.WHITE);
-	public static final Figure WHITE_QUEEN = new Queen(Player.WHITE);
-	public static final Figure WHITE_KING = new King(Player.WHITE);
+	public static final Figure WHITE_PAWN = new Pawn(Player.WHITE, 1);
+	public static final Figure WHITE_ROOK = new Rook(Player.WHITE, 5);
+	public static final Figure WHITE_KNIGHT = new Knight(Player.WHITE, 3);
+	public static final Figure WHITE_BISHOP = new Bishop(Player.WHITE, 3);
+	public static final Figure WHITE_QUEEN = new Queen(Player.WHITE, 9);
+	public static final Figure WHITE_KING = new King(Player.WHITE, 100);
 	
-	public static final Figure BLACK_PAWN = new Pawn(Player.BLACK);
-	public static final Figure BLACK_ROOK = new Rook(Player.BLACK);
-	public static final Figure BLACK_KNIGHT = new Knight(Player.BLACK);
-	public static final Figure BLACK_BISHOP = new Bishop(Player.BLACK);
-	public static final Figure BLACK_QUEEN = new Queen(Player.BLACK);
-	public static final Figure BLACK_KING = new King(Player.BLACK);
+	public static final Figure BLACK_PAWN = new Pawn(Player.BLACK, 1);
+	public static final Figure BLACK_ROOK = new Rook(Player.BLACK, 5);
+	public static final Figure BLACK_KNIGHT = new Knight(Player.BLACK, 3);
+	public static final Figure BLACK_BISHOP = new Bishop(Player.BLACK, 3);
+	public static final Figure BLACK_QUEEN = new Queen(Player.BLACK, 9);
+	public static final Figure BLACK_KING = new King(Player.BLACK, 100);
 	
 	public static final char WHITE_PAWN_CODE = 'P';
 	public static final char WHITE_ROOK_CODE = 'R';
@@ -40,9 +40,11 @@ public abstract class Figure {
 	public static final char NONE_CODE = '.';
 	
 	protected Player player;
+	protected int value;
 	
-	public Figure(Player player) {
+	public Figure(Player player, int value) {
 		this.player = player;
+		this.value = value;
 	}
 	
 	@Override
@@ -60,8 +62,6 @@ public abstract class Figure {
 				.append(player, figure.player).isEquals();
 	}
 	
-	public abstract List<MoveMode> getAllMoveModes();
-	
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 37).append(this.getClass().getName()).append(player).toHashCode();
@@ -69,6 +69,12 @@ public abstract class Figure {
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public abstract List<MoveMode> getAllMoveModes();
+	
+	public int getValue() {
+		return value;
 	}
 	
 }

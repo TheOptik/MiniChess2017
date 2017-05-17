@@ -23,8 +23,8 @@ public class Pawn extends Figure {
 		moveModesWhite.add(new MoveMode(-1, 1, true, MoveMode.CAPUTRE_MODE_MUST, false));
 	}
 	
-	public Pawn(Player player) {
-		super(player);
+	public Pawn(Player player,int value) {
+		super(player,value);
 	}
 	
 	@Override

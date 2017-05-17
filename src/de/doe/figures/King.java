@@ -16,8 +16,8 @@ public class King extends Figure {
 		moveModes.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_CAN, true));
 	}
 	
-	public King(Player player) {
-		super(player);
+	public King(Player player,int value) {
+		super(player,value);
 	}
 	
 	@Override

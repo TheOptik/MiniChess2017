@@ -16,8 +16,8 @@ public class Queen extends Figure {
 		moveModes.add(new MoveMode(0, 1, false, MoveMode.CAPUTRE_MODE_CAN, true));
 	}
 	
-	public Queen(Player player) {
-		super(player);
+	public Queen(Player player,int value) {
+		super(player,value);
 	}
 	
 	@Override

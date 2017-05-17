@@ -4,21 +4,52 @@ import java.io.IOException;
 
 import de.doe.players.AbstractPlayer;
 import de.doe.players.Client;
+import de.doe.players.HeuristicPlayer;
 import de.doe.players.RandomPlayer;
 
 public class MiniChessLauncher {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		playRandom();
+		//playRandom();
 		// playOnline();
+		playRandomVSHeuristic();
+		
+	}
+	
+	private static void playRandomVSHeuristic() {
+		
+		Board board = new Board();
+		
+		AbstractPlayer player1 = new HeuristicPlayer(Player.WHITE);
+		AbstractPlayer player2 = new RandomPlayer(Player.BLACK);
+		
+		Move move;
+		System.out.println(board);
+		while (!board.isGameOver() && !board.isDraw) {
+			
+			move = player1.getMove(board);
+			board = board.move(move);
+			
+			System.out.println(board);
+			if (board.isGameOver() || board.isDraw) {
+				break;
+			}
+			
+			move = player2.getMove(board);
+			board = board.move(move);
+			
+			System.out.println(board);
+			
+		}
+		System.out.println(board.winner + " won.");
 		
 	}
 	
 	private static void playOnline() throws InterruptedException {
 		
 		String id = "13444";
-
+		
 		Board board = new Board();
 		Move move;
 		

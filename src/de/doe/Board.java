@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.List;
 
 import de.doe.figures.Figure;
 
@@ -16,6 +17,9 @@ public class Board {
 	protected boolean isGameOver = false;
 	protected boolean isDraw = false;
 	protected Player winner;
+	
+	protected List<Figure> whiteFigures;
+	protected List<Figure> blackFigures;
 	
 	public Board() {
 		initalizeField();
@@ -191,6 +195,14 @@ public class Board {
 	
 	public void print(PrintWriter writer) {
 		writer.print(this.toString());
+	}
+	
+	public List<Figure> getAllFiguresForPlayer(Player player) {
+		if (player.equals(Player.WHITE)) {
+			return whiteFigures;
+		} else {
+			return blackFigures;
+		}
 	}
 	
 	public Field getField(int x, int y) {

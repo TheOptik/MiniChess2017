@@ -16,8 +16,8 @@ public class Bishop extends Figure {
 		moveModes.add(new MoveMode(0, 1, true, MoveMode.CAPUTRE_MODE_NO, true));
 	}
 	
-	public Bishop(Player player) {
-		super(player);
+	public Bishop(Player player,int value) {
+		super(player,value);
 	}
 	
 	@Override

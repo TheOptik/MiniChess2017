@@ -15,8 +15,8 @@ public class Rook extends Figure {
 		moveModes.add(new MoveMode(0, 1, false, MoveMode.CAPUTRE_MODE_CAN, true));
 	}
 	
-	public Rook(Player player) {
-		super(player);
+	public Rook(Player player,int value) {
+		super(player,value);
 	}
 	
 	@Override
