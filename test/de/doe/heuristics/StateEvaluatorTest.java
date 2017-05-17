@@ -50,8 +50,8 @@ public class StateEvaluatorTest {
     assertEquals(-8, evalW.evaluate(board1));
     assertEquals(-8, evalB.evaluate(board2));
     assertEquals(8, evalB.evaluate(board3));
-  }  
-  
+  }
+
   @Test
   public void evaluationPawnVSBishop() throws Exception {
 
@@ -71,7 +71,7 @@ public class StateEvaluatorTest {
     assertEquals(-2, evalB.evaluate(board2));
     assertEquals(2, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationPawnVsKnight() throws Exception {
 
@@ -91,7 +91,7 @@ public class StateEvaluatorTest {
     assertEquals(-2, evalB.evaluate(board2));
     assertEquals(2, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationPawnVsRook() throws Exception {
 
@@ -131,7 +131,7 @@ public class StateEvaluatorTest {
     assertEquals(0, evalB.evaluate(board2));
     assertEquals(0, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationRookVsKing() throws Exception {
     Board board = new Board(
@@ -150,7 +150,7 @@ public class StateEvaluatorTest {
     assertEquals(-95, evalB.evaluate(board2));
     assertEquals(95, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationRookVsQueen() throws Exception {
     Board board = new Board(
@@ -265,7 +265,7 @@ public class StateEvaluatorTest {
     assertEquals(-6, evalB.evaluate(board2));
     assertEquals(6, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationKnightVsBishop() throws Exception {
     Board board = new Board(
@@ -284,7 +284,7 @@ public class StateEvaluatorTest {
     assertEquals(0, evalB.evaluate(board2));
     assertEquals(0, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationKnightVsKnight() throws Exception {
     Board board = new Board(
@@ -322,7 +322,7 @@ public class StateEvaluatorTest {
     assertEquals(-97, evalB.evaluate(board2));
     assertEquals(97, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationBishopVsQueen() throws Exception {
     Board board = new Board(
@@ -341,7 +341,7 @@ public class StateEvaluatorTest {
     assertEquals(-6, evalB.evaluate(board2));
     assertEquals(6, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationBishopVsBishop() throws Exception {
     Board board = new Board(
@@ -360,7 +360,7 @@ public class StateEvaluatorTest {
     assertEquals(0, evalB.evaluate(board2));
     assertEquals(0, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationQueenVsKing() throws Exception {
     Board board = new Board(
@@ -379,7 +379,7 @@ public class StateEvaluatorTest {
     assertEquals(-91, evalB.evaluate(board2));
     assertEquals(91, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationQueenVsQueen() throws Exception {
     Board board = new Board(
@@ -398,7 +398,7 @@ public class StateEvaluatorTest {
     assertEquals(0, evalB.evaluate(board2));
     assertEquals(0, evalB.evaluate(board3));
   }
-  
+
   @Test
   public void evaluationKingVsKing() throws Exception {
     Board board = new Board(
@@ -416,5 +416,321 @@ public class StateEvaluatorTest {
     assertEquals(0, evalW.evaluate(board1));
     assertEquals(0, evalB.evaluate(board2));
     assertEquals(0, evalB.evaluate(board3));
+  }
+
+  @Test
+  public void evaluationPawnAddKing() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(101, evalW.evaluate(board));
+    assertEquals(-101, evalW.evaluate(board1));
+    assertEquals(-101, evalB.evaluate(board));
+    assertEquals(101, evalB.evaluate(board1));
+  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  @Test
+  public void evaluationPawnAddQueen() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(10, evalW.evaluate(board));
+    assertEquals(-10, evalW.evaluate(board1));
+    assertEquals(-10, evalB.evaluate(board));
+    assertEquals(10, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationPawnAddBishop() throws Exception {
+
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(4, evalW.evaluate(board));
+    assertEquals(-4, evalW.evaluate(board1));
+    assertEquals(-4, evalB.evaluate(board));
+    assertEquals(4, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationPawnAddKnight() throws Exception {
+
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(4, evalW.evaluate(board));
+    assertEquals(-4, evalW.evaluate(board1));
+    assertEquals(-4, evalB.evaluate(board));
+    assertEquals(4, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationPawnAddRook() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".R...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".r...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(6, evalW.evaluate(board));
+    assertEquals(-6, evalW.evaluate(board1));
+    assertEquals(-6, evalB.evaluate(board));
+    assertEquals(6, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationPawnAddPawn() throws Exception {
+
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".P...", ".....", ".....", ".....", ".....", ".P..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".p...", ".....", ".....", ".....", ".....", ".p..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(2, evalW.evaluate(board));
+    assertEquals(-2, evalW.evaluate(board1));
+    assertEquals(-2, evalB.evaluate(board));
+    assertEquals(2, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationRookAddKing() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".R..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".r..."));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(105, evalW.evaluate(board));
+    assertEquals(-105, evalW.evaluate(board1));
+    assertEquals(-105, evalB.evaluate(board));
+    assertEquals(105, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationRookAddQueen() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".R..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".r..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(14, evalW.evaluate(board));
+    assertEquals(-14, evalW.evaluate(board1));
+    assertEquals(-14, evalB.evaluate(board));
+    assertEquals(14, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationRookAddBishop() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".R..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".r..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(8, evalW.evaluate(board));
+    assertEquals(-8, evalW.evaluate(board1));
+    assertEquals(-8, evalB.evaluate(board));
+    assertEquals(8, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationRookAddKnight() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".R..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".r..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(8, evalW.evaluate(board));
+    assertEquals(-8, evalW.evaluate(board1));
+    assertEquals(-8, evalB.evaluate(board));
+    assertEquals(8, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationRookAddRook() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".R...", ".....", ".....", ".....", ".....", ".R..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".r...", ".....", ".....", ".....", ".....", ".r..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(10, evalW.evaluate(board));
+    assertEquals(-10, evalW.evaluate(board1));
+    assertEquals(-10, evalB.evaluate(board));
+    assertEquals(10, evalB.evaluate(board1));
+  }
+
+
+  @Test
+  public void evaluationKnightAddKing() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".N..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".n..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(103, evalW.evaluate(board));
+    assertEquals(-103, evalW.evaluate(board1));
+    assertEquals(-103, evalB.evaluate(board));
+    assertEquals(103, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationKnightAddQueen() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".N..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".n..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(12, evalW.evaluate(board));
+    assertEquals(-12, evalW.evaluate(board1));
+    assertEquals(-12, evalB.evaluate(board));
+    assertEquals(12, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationKnightAddBishop() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".N..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".n..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(6, evalW.evaluate(board));
+    assertEquals(-6, evalW.evaluate(board1));
+    assertEquals(-6, evalB.evaluate(board));
+    assertEquals(6, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationKnightAddKnight() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".N..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".n...", ".....", ".....", ".....", ".....", ".n..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(6, evalW.evaluate(board));
+    assertEquals(-6, evalW.evaluate(board1));
+    assertEquals(-6, evalB.evaluate(board));
+    assertEquals(6, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationBishopAddKing() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".B..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".b..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(103, evalW.evaluate(board));
+    assertEquals(-103, evalW.evaluate(board1));
+    assertEquals(-103, evalB.evaluate(board));
+    assertEquals(103, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationBishopAddQueen() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".B..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".b..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(12, evalW.evaluate(board));
+    assertEquals(-12, evalW.evaluate(board1));
+    assertEquals(-12, evalB.evaluate(board));
+    assertEquals(12, evalB.evaluate(board1));
+  }
+    
+  @Test
+  public void evaluationBishopAddBishop() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".B..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".b...", ".....", ".....", ".....", ".....", ".b..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(6, evalW.evaluate(board));
+    assertEquals(-6, evalW.evaluate(board1));
+    assertEquals(-6, evalB.evaluate(board));
+    assertEquals(6, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationQueenAddKing() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".Q..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".k...", ".....", ".....", ".....", ".....", ".q..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(109, evalW.evaluate(board));
+    assertEquals(-109, evalW.evaluate(board1));
+    assertEquals(-109, evalB.evaluate(board));
+    assertEquals(109, evalB.evaluate(board1));
+  }
+
+  @Test
+  public void evaluationQueenAddQueen() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".Q..."));
+    Board board1 = new Board(
+        TestUtils.getMultilineString("1 W", ".q...", ".....", ".....", ".....", ".....", ".q..."));
+    
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(18, evalW.evaluate(board));
+    assertEquals(-18, evalW.evaluate(board1));
+    assertEquals(-18, evalB.evaluate(board));
+    assertEquals(18, evalB.evaluate(board1));
+  }
+  
+  @Test
+  public void evaluationFullField() throws Exception {
+    Board board = new Board(
+        TestUtils.getMultilineString("1 W", "kqbnr", "ppppp", ".....", ".....", "PPPPP", "RNBQK"));
+
+    StateEvaluator evalW = new StateEvaluator(Player.WHITE);
+    StateEvaluator evalB = new StateEvaluator(Player.BLACK);
+    assertEquals(0, evalW.evaluate(board));
+    assertEquals(0, evalB.evaluate(board));
   }
 }
