@@ -29,7 +29,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		Move bestMove = null;
 
 		for (Move move : moves) {
-			int score = negaMax(board.move(move), depth);
+			int score = -negaMax(board.move(move), depth);
 			if (score > maxScore) {
 				maxScore = score;
 				bestMove = move;
