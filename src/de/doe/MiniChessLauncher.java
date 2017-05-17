@@ -10,14 +10,14 @@ public class MiniChessLauncher {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		//playRandom();
-		playOnline();
+		playRandom();
+		// playOnline();
 		
 	}
 	
 	private static void playOnline() throws InterruptedException {
 		
-		String id = "13405";
+		String id = "13444";
 		Board board = new Board();
 		Move move;
 		
@@ -25,34 +25,39 @@ public class MiniChessLauncher {
 			Client client = new Client("imcs.svcs.cs.pdx.edu", "3589", "doe", "123456");
 			
 			char color = client.accept(id, '?');
-			Player remotePlayer = Player.fromChar(color);
+			Player botPlayer = Player.fromChar(color);
+			RandomPlayer bot = new RandomPlayer(botPlayer);
+			Player remotePlayer = botPlayer.other();
 			
-			//RandomPlayer bot = new RandomPlayer(remotePlayer.equals(Player.WHITE) ? Player.BLACK : Player.WHITE);
-			RandomPlayer bot = new RandomPlayer(Player.BLACK);
-			
+			System.out.println("REMOTE: " + remotePlayer);
+			System.out.println("ME: " + botPlayer);
 			
 			if (remotePlayer.equals(Player.WHITE)) {
 				move = new Move(client.getMove().trim(), remotePlayer);
 				board = board.move(move);
 			}
 			
-			while (true) {
+			while (!board.isGameOver() && !board.isDraw) {
 				
 				move = bot.getMove(board);
-				board = board.move(move);
-				System.out.println(board);
 				System.out.println("sending move: " + move.toChessString());
+				System.out.println("for board:" + System.lineSeparator() + board);
+				board = board.move(move);
+				System.out.println("after the move the board was:" + System.lineSeparator() + board);
+				System.out.println("______________________________________");
 				client.sendMove(move.toChessString());
 				
-				
+				if (board.isGameOver() || board.isDraw) {
+					break;
+				}
 				
 				move = new Move(client.getMove().trim(), remotePlayer);
+				System.out.println("BOT MOVE:" + move);
+				System.out.println("______________________________________");
 				board = board.move(move);
 				
-				System.out.println(board);
-				Thread.sleep(1000);
 			}
-			
+			System.out.println(board.winner + " won.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -67,12 +72,15 @@ public class MiniChessLauncher {
 		
 		Move move;
 		System.out.println(board);
-		while (true) {
+		while (!board.isGameOver() && !board.isDraw) {
 			
 			move = player1.getMove(board);
 			board = board.move(move);
 			
 			System.out.println(board);
+			if (board.isGameOver() || board.isDraw) {
+				break;
+			}
 			
 			move = player2.getMove(board);
 			board = board.move(move);
@@ -80,6 +88,7 @@ public class MiniChessLauncher {
 			System.out.println(board);
 			
 		}
+		System.out.println(board.winner + " won.");
 	}
 	
 	public static String getMultilineString(String... strings) {

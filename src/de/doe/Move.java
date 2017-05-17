@@ -16,8 +16,8 @@ public class Move {
 
     String[] parts = lowerCaseMove.split("-");
 
-    from = new Coordinate(parts[0].charAt(1) - '1', 5 - (parts[0].charAt(0) - 'a'));
-    to = new Coordinate(parts[1].charAt(1) - '1', 5 - (parts[1].charAt(0) - 'a'));
+    from = new Coordinate(parts[0].charAt(0) - 'a', 5 - (parts[0].charAt(1) - '1'));
+    to = new Coordinate(parts[1].charAt(0) - 'a', 5 - (parts[1].charAt(1) - '1'));
 
   }
 
