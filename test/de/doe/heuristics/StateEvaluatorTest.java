@@ -13,7 +13,7 @@ public class StateEvaluatorTest {
 
 
   @Test
-  public void evaluationPawnAndKing() throws Exception {
+  public void evaluationPawnVsKing() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".p..."));
@@ -33,7 +33,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationPawnAndQueen() throws Exception {
+  public void evaluationPawnVsQueen() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".p..."));
@@ -53,7 +53,7 @@ public class StateEvaluatorTest {
   }  
   
   @Test
-  public void evaluationPawnAndBishop() throws Exception {
+  public void evaluationPawnVSBishop() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".p..."));
@@ -73,7 +73,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationPawnAndKnight() throws Exception {
+  public void evaluationPawnVsKnight() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".p..."));
@@ -93,7 +93,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationPawnAndRook() throws Exception {
+  public void evaluationPawnVsRook() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".R...", ".....", ".....", ".....", ".....", ".p..."));
@@ -113,7 +113,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationPawnAndPawn() throws Exception {
+  public void evaluationPawnVsPawn() throws Exception {
 
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".P...", ".....", ".....", ".....", ".....", ".p..."));
@@ -133,7 +133,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationRookAndKing() throws Exception {
+  public void evaluationRookVsKing() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".r..."));
     Board board1 = new Board(
@@ -152,7 +152,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationRookAndQueen() throws Exception {
+  public void evaluationRookVsQueen() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".r..."));
     Board board1 = new Board(
@@ -171,7 +171,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationRookAndBishop() throws Exception {
+  public void evaluationRookVsBishop() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".r..."));
     Board board1 = new Board(
@@ -190,7 +190,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationRookAndKnight() throws Exception {
+  public void evaluationRookVsKnight() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".r..."));
     Board board1 = new Board(
@@ -209,7 +209,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationRookAndRook() throws Exception {
+  public void evaluationRookVsRook() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".R...", ".....", ".....", ".....", ".....", ".r..."));
     Board board1 = new Board(
@@ -229,7 +229,7 @@ public class StateEvaluatorTest {
 
 
   @Test
-  public void evaluationKnightAndKing() throws Exception {
+  public void evaluationKnightVsKing() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".n..."));
     Board board1 = new Board(
@@ -248,7 +248,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationKnightAndQueen() throws Exception {
+  public void evaluationKnightVsQueen() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".n..."));
     Board board1 = new Board(
@@ -267,7 +267,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationKnightAndBishop() throws Exception {
+  public void evaluationKnightVsBishop() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".n..."));
     Board board1 = new Board(
@@ -286,7 +286,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationKnightAndKnight() throws Exception {
+  public void evaluationKnightVsKnight() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".N...", ".....", ".....", ".....", ".....", ".n..."));
     Board board1 = new Board(
@@ -305,7 +305,7 @@ public class StateEvaluatorTest {
   }
 
   @Test
-  public void evaluationBishopAndKing() throws Exception {
+  public void evaluationBishopVsKing() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".b..."));
     Board board1 = new Board(
@@ -324,7 +324,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationBishopAndQueen() throws Exception {
+  public void evaluationBishopVsQueen() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".b..."));
     Board board1 = new Board(
@@ -343,7 +343,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationBishopAndBishop() throws Exception {
+  public void evaluationBishopVsBishop() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".B...", ".....", ".....", ".....", ".....", ".b..."));
     Board board1 = new Board(
@@ -362,7 +362,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationQueenAndKing() throws Exception {
+  public void evaluationQueenVsKing() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".q..."));
     Board board1 = new Board(
@@ -381,7 +381,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationQueenAndQueen() throws Exception {
+  public void evaluationQueenVsQueen() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".Q...", ".....", ".....", ".....", ".....", ".q..."));
     Board board1 = new Board(
@@ -400,7 +400,7 @@ public class StateEvaluatorTest {
   }
   
   @Test
-  public void evaluationKingAndKing() throws Exception {
+  public void evaluationKingVsKing() throws Exception {
     Board board = new Board(
         TestUtils.getMultilineString("1 W", ".K...", ".....", ".....", ".....", ".....", ".k..."));
     Board board1 = new Board(
