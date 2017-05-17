@@ -11,7 +11,7 @@ public class MiniChessLauncher {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		//playRandom();
+		// playRandom();
 		// playOnline();
 		playRandomVSHeuristic();
 		

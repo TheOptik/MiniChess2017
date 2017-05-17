@@ -3,7 +3,7 @@ package de.doe;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.doe.figures.Figure;
@@ -18,8 +18,8 @@ public class Board {
 	protected boolean isDraw = false;
 	protected Player winner;
 	
-	protected List<Figure> whiteFigures;
-	protected List<Figure> blackFigures;
+	protected List<Figure> whiteFigures = new ArrayList<>();
+	protected List<Figure> blackFigures = new ArrayList<>();
 	
 	public Board() {
 		initalizeField();
@@ -80,14 +80,6 @@ public class Board {
 		}
 	}
 	
-	private Board(Board board) {
-		
-		this.fields = Arrays.copyOf(board.fields, board.fields.length);
-		this.activePlayer = board.activePlayer;
-		this.turn = board.turn;
-		
-	}
-	
 	private void initalizeField() {
 		for (int x = 0; x < fields.length; x++) {
 			for (int y = 0; y < fields[0].length; y++) {
@@ -108,6 +100,7 @@ public class Board {
 				switch (charLine[j]) {
 				case Figure.BLACK_PAWN_CODE:
 					this.fields[j][i - 1].figure = Figure.BLACK_PAWN;
+					blackFigures.add(Figure.BLACK_PAWN);
 					break;
 				case Figure.WHITE_PAWN_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_PAWN;
@@ -141,6 +134,7 @@ public class Board {
 					break;
 				case Figure.WHITE_KING_CODE:
 					this.fields[j][i - 1].figure = Figure.WHITE_KING;
+					whiteFigures.add(Figure.WHITE_KING);
 					break;
 				case Figure.NONE_CODE:
 					this.fields[j][i - 1].figure = null;
@@ -154,13 +148,14 @@ public class Board {
 	}
 	
 	public Board move(Move move) {
+		Board result = new Board(this.toString());
 		if (move == null) {
-			isGameOver = true;
-			winner = activePlayer.other();
-			return this;
+			result.isGameOver = true;
+			result.winner = activePlayer.other();
+			return result;
 		}
+		
 		if (move.player.equals(activePlayer)) {
-			Board result = new Board(this);
 			Figure fig = result.fields[move.from.x][move.from.y].figure;
 			result.fields[move.from.x][move.from.y].figure = null;
 			if (result.fields[move.to.x][move.to.y].figure != null
