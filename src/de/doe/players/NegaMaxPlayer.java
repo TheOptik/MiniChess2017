@@ -51,8 +51,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		if (depth <= 0 || moves.isEmpty()) {
 			return evaluator.evaluate(board);
 		}
-		for (Move move : moves) {// TODO test like in skript (without just doing
-									// it in one loop)
+		for (Move move : moves) {
 			Board newBoard = board.move(move);
 			int score = -(negaMax(newBoard, depth - 1));
 			result = Math.max(result, score);
