@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 /**
@@ -148,9 +149,9 @@ public class Client {
 	void setClient(String server, String portStr, String username, String password) throws IOException {
 		int port = Integer.parseInt(portStr);
 		Socket s = new Socket(server, port);
-		InputStreamReader isr = new InputStreamReader(s.getInputStream());
+		InputStreamReader isr = new InputStreamReader(s.getInputStream(), Charset.forName("UTF-8"));
 		in = new BufferedReader(isr);
-		out = new PrintStream(s.getOutputStream(), true);
+		out = new PrintStream(s.getOutputStream(), true, "UTF-8");
 		String version = expectResponse(false);
 		if (!"imcs 2.5".equals(responseString(version)))
 			throw new Error("client: imcs version mismatch");
