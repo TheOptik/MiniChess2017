@@ -9,20 +9,20 @@ import de.doe.MoveGenerator;
 import de.doe.Player;
 
 public class HumanPlayer extends AbstractPlayer {
-
+	
 	private Scanner scanner;
-
+	
 	public HumanPlayer(Player player) {
 		super(player);
-		scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in, "UTF-8");
 	}
-
+	
 	@Override
 	public Move getMove(Board board) {
-
+		
 		MoveGenerator generator = new MoveGenerator(board);
 		List<Move> moves = generator.getAllMoves();
-
+		
 		System.out.println("Please make a move for example: " + moves.get(0));
 		try {
 			Move move = new Move(scanner.nextLine(), player);
@@ -35,5 +35,5 @@ public class HumanPlayer extends AbstractPlayer {
 			return getMove(board);
 		}
 	}
-
+	
 }

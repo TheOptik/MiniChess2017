@@ -15,7 +15,7 @@ public class BoardTest {
 		
 		// Test board parameter
 		assertEquals(board.activePlayer, Player.WHITE);
-		assertEquals(board.turn, 1);
+		assertEquals(board.numberOfMoves, 1);
 		
 		// Test Black Pieces
 		assertEquals(board.getField(0, 0).figure, Figure.BLACK_KING);
@@ -52,7 +52,7 @@ public class BoardTest {
 		Board board = new Board(TestUtils.getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."));
 		
 		// Test board parameter
-		assertEquals(board.turn, 20);
+		assertEquals(board.numberOfMoves, 20);
 		assertEquals(board.activePlayer, Player.BLACK);
 		
 		// Test Black Pieces
@@ -84,7 +84,7 @@ public class BoardTest {
 				new StringReader(TestUtils.getMultilineString("20 B", "ppKP.", "QNnRp", ".....", ".....", ".....", "....."))));
 		
 		// Test board parameter
-		assertEquals(board.turn, 20);
+		assertEquals(board.numberOfMoves, 20);
 		assertEquals(board.activePlayer, Player.BLACK);
 		
 		// Test Black Pieces

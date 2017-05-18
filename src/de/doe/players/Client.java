@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  * Provides an interface to the Internet MiniChess Server.
@@ -253,4 +254,27 @@ public class Client {
 		in.close();
 		out.close();
 	}
+	
+	public int getRandomGameId() {
+		int result = 0;
+		out.print("list" + sendLineEnding);
+		out.flush();
+		try {
+			String line;
+			while (!(line = in.readLine()).contains("offer")) {
+				
+			}
+			Scanner scanner = new Scanner(line);
+			result = scanner.nextInt();
+			scanner.close();
+			while (in.ready()) {
+				in.read();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }
