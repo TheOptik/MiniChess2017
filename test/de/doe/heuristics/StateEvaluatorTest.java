@@ -7,9 +7,26 @@ import org.junit.Test;
 import de.doe.Board;
 import de.doe.Player;
 import de.doe.TestUtils;
+import de.doe.players.NegaMaxPlayer;
 import heuristics.BoardEvaluator;
 
 public class StateEvaluatorTest {
+	
+	@Test
+	public void stateEvaluatorTempTest() throws Exception {
+		
+		Board board = new Board(
+				TestUtils.getMultilineString("1 W", ".....", "r....", "..K..", "..p..", ".r...", "....."));
+		BoardEvaluator evaluator = new BoardEvaluator(Player.WHITE);
+		NegaMaxPlayer player = new NegaMaxPlayer(Player.WHITE, 2);
+		assertEquals(89, evaluator.evaluate(board));
+		assertEquals(89, evaluator.evaluate(board));
+		System.out.println(board);
+		player.getMove(board);
+		System.out.println(board);
+		assertEquals(89, evaluator.evaluate(board));
+		
+	}
 	
 	@Test
 	public void evaluationPawnVsKing() throws Exception {

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 import de.doe.figures.Figure;
 
@@ -14,12 +15,15 @@ public class Board {
 	protected Player activePlayer;
 	protected int numberOfMoves;
 	
-	protected boolean isGameOver = false;
-	protected boolean isDraw = false;
-	protected Player winner;
+	protected boolean isGameOver = false; // save
+	protected boolean isDraw = false; // save
+	protected Player winner; // save
 	
 	protected List<Figure> whiteFigures = new ArrayList<>();
 	protected List<Figure> blackFigures = new ArrayList<>();
+	
+	private Stack<BoardState> previousStates = new Stack<>(); // this is NOT
+																// threadSafe
 	
 	public Board() {
 		initalizeField();
@@ -158,35 +162,57 @@ public class Board {
 	}
 	
 	public Board move(Move move) {
-		Board result = new Board(this.toString());
+		
 		if (move == null) {
-			result.isGameOver = true;
-			result.winner = activePlayer.other();
-			return result;
+			this.isGameOver = true;
+			this.winner = activePlayer.other();
+			return this;
+		} else {
+			previousStates.push(new BoardState(isGameOver, isDraw, winner, fields[move.to.x][move.to.y].figure));
 		}
 		
 		if (move.player.equals(activePlayer)) {
-			Figure fig = result.fields[move.from.x][move.from.y].figure;
-			result.fields[move.from.x][move.from.y].figure = null;
-			if (result.fields[move.to.x][move.to.y].figure != null
-					&& (result.fields[move.to.x][move.to.y].figure.equals(Figure.WHITE_KING)
-							|| result.fields[move.to.x][move.to.y].figure.equals(Figure.BLACK_KING))) {
-				result.isGameOver = true;
-				result.winner = activePlayer;
+			Figure fig = this.fields[move.from.x][move.from.y].figure;
+			this.fields[move.from.x][move.from.y].figure = null;
+			if (this.fields[move.to.x][move.to.y].figure != null
+					&& (this.fields[move.to.x][move.to.y].figure.equals(Figure.WHITE_KING)
+							|| this.fields[move.to.x][move.to.y].figure.equals(Figure.BLACK_KING))) {
+				this.isGameOver = true;
+				this.winner = activePlayer;
 			}
-			result.getAllFiguresForPlayer(activePlayer.other()).remove(result.fields[move.to.x][move.to.y].figure);
-			result.fields[move.to.x][move.to.y].figure = fig;
+			this.getAllFiguresForPlayer(activePlayer.other()).remove(this.fields[move.to.x][move.to.y].figure);
+			this.fields[move.to.x][move.to.y].figure = fig;
 			
-			result.activePlayer = activePlayer.other();
-			result.numberOfMoves++;
-			if (result.numberOfMoves >= 80) {
-				result.isDraw = true;
+			this.activePlayer = activePlayer.other();
+			this.numberOfMoves++;
+			if (this.numberOfMoves >= 80) {
+				this.isDraw = true;
 			}
 			
-			return result;
+			return this;
 		} else {
 			throw new IllegalArgumentException("It is not " + move.player + "'s turn!");
 		}
+	}
+	
+	public Board undoMove(Move move) {
+		
+		BoardState previousState = previousStates.pop();
+		
+		isGameOver = previousState.isGameOver;
+		isDraw = previousState.isDraw;
+		winner = previousState.winner;
+		numberOfMoves--;
+		activePlayer = activePlayer.other();
+		
+		fields[move.from.x][move.from.y].figure = fields[move.to.x][move.to.y].figure;
+		fields[move.to.x][move.to.y].figure = previousState.capturedFigure;
+		if (previousState.capturedFigure != null) {
+			getAllFiguresForPlayer(previousState.capturedFigure.getPlayer()).add(previousState.capturedFigure);
+		}
+		
+		return this;
+		
 	}
 	
 	@Override
@@ -238,4 +264,21 @@ public class Board {
 	public Player getActivePlayer() {
 		return activePlayer;
 	}
+	
+	private class BoardState {
+		boolean isGameOver;
+		boolean isDraw;
+		Player winner;
+		Figure capturedFigure;
+		
+		public BoardState(boolean isGameOver, boolean isDraw, Player winner, Figure capturedFigure) {
+			super();
+			this.isGameOver = isGameOver;
+			this.isDraw = isDraw;
+			this.winner = winner;
+			this.capturedFigure = capturedFigure;
+		}
+		
+	}
+	
 }

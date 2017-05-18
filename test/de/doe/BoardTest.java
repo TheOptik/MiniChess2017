@@ -1,5 +1,7 @@
 package de.doe;
 
+import static org.junit.Assert.*;
+
 import java.io.BufferedReader;
 import java.io.StringReader;
 
@@ -108,6 +110,22 @@ public class BoardTest {
 			}
 		}
 	}
+	
+	
+	@Test
+	public void BoardUndoTest() throws Exception {
+		
+		Board board = new Board();
+		
+		Move move = new Move("a2-a3", Player.WHITE);
+		
+		Board newBoard = board.move(move);
+		
+		
+		assertEquals(new Board().toString(), newBoard.undoMove(move).toString());
+		
+	}
+	
 	
 	
 	/**

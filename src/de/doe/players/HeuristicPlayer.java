@@ -24,8 +24,9 @@ public class HeuristicPlayer extends AbstractPlayer {
 		int best = Integer.MIN_VALUE;
 		Move bestMove = null;
 		for (Move move : moves) {
-			Board newBoard = board.move(move);
-			int newBoardValue = evaluator.evaluate(newBoard);
+			board.move(move);
+			int newBoardValue = evaluator.evaluate(board);
+			board.undoMove(move);
 			if (best < newBoardValue) {
 				best = newBoardValue;
 				bestMove = move;

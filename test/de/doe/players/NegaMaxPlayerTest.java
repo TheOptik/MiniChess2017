@@ -38,10 +38,11 @@ public class NegaMaxPlayerTest {
 		Board expected2 = new Board(
 				TestUtils.getMultilineString("2 B", ".....", "r....", ".....", "..pK.", ".r...", "....."));
 		
-		NegaMaxPlayer player1 = new NegaMaxPlayer(Player.WHITE, 2);
+		NegaMaxPlayer player1 = new NegaMaxPlayer(Player.WHITE, 0);
 		Move move = player1.getMove(board);
 		Board result = board.move(move);
 		
+		System.out.println(result);
 		assertTrue(expected.toString().equals(result.toString()) || expected2.toString().equals(result.toString()));
 	}
 	
@@ -81,6 +82,16 @@ public class NegaMaxPlayerTest {
 		Board result = board.move(player.getMove(board));
 		System.out.println(result);
 		
+	}
+	
+	@Test
+	public void checkDepthForNormalGameLength() throws Exception {
+		
+		NegaMaxPlayer player = new NegaMaxPlayer(Player.WHITE, 6);
+		Move move = player.getMove(new Board());
+		System.out.println(move.toChessString());
+		System.out.println(player.getLastPlayDepth());
+		assertTrue(6 < player.getLastPlayDepth());
 	}
 	
 }

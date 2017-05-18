@@ -2,6 +2,7 @@ package de.doe.players;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import de.doe.Board;
 import de.doe.Move;
@@ -13,6 +14,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 	
 	private final int timePerMove;
 	private boolean timeout = false;
+	private int lastPlayDepth = 0;
 	
 	/**
 	 * @param player
@@ -29,7 +31,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		
 		MoveGenerator generator = new MoveGenerator(board);
 		List<Move> moves = generator.getAllMoves();
-		Collections.shuffle(moves);
+		Collections.shuffle(moves, new Random(1));
 		
 		int maxScore = Integer.MIN_VALUE;
 		Move bestMove = null;
@@ -41,7 +43,13 @@ public class NegaMaxPlayer extends AbstractPlayer {
 			public void run() {
 				long end = System.currentTimeMillis() + (timePerMove * 1000);
 				while (!timeout) {
+					try {
+						Thread.sleep(10);
+					} catch (Exception e) {
+					}
 					timeout = end < System.currentTimeMillis();
+					if (timeout) {
+					}
 				}
 			}
 		});
@@ -49,21 +57,23 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		
 		int depth = 2;
 		while (!timeout) {
+			// System.out.println(depth + "______________");
 			for (Move move : moves) {
 				int score = -negaMax(board.move(move), depth, -1000, 1000);
-				//System.out.println(score + ":" + move.toChessString());
+//				System.out.println(score + ":" + move.toChessString());
+				board.undoMove(move);
 				if (score > maxScore) {
 					maxScore = score;
 					bestMove = move;
-					Board newBoard = board.move(bestMove);
-					if (newBoard.isGameOver()) {
+					if (board.isGameOver()) {
 						return bestMove;
 					}
 				}
 			}
+			lastPlayDepth = depth;
 			depth++;
 		}
-		//System.out.println("BEST: " + maxScore + " " + bestMove.toChessString());
+		System.out.println("BEST: " + maxScore + " " + bestMove.toChessString());
 		return bestMove;
 	}
 	
@@ -83,18 +93,24 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		
 		for (Move move : moves) {
 			
-			Board newBoard = board.move(move);
-			int score = -negaMax(newBoard, depth - 1, -beta, -alpha);
+			board.move(move);
+			int score = -negaMax(board, depth - 1, -beta, -alpha);
+			board.undoMove(move);
 			
-			if (score >= beta) {
-				return score;
-			}
+//			if (score >= beta) {
+//				return score;
+//			}
+//			alpha = Math.max(alpha, score);
 			result = Math.max(result, score);
-			 alpha = Math.max(alpha, score);
+			
 		}
 		
 		return result;
 		
+	}
+	
+	protected int getLastPlayDepth() {
+		return lastPlayDepth;
 	}
 	
 }
