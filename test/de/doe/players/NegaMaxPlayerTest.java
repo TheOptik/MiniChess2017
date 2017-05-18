@@ -1,7 +1,6 @@
 package de.doe.players;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -93,5 +92,14 @@ public class NegaMaxPlayerTest {
 		System.out.println(player.getLastPlayDepth());
 		assertTrue(6 < player.getLastPlayDepth());
 	}
+	
+	@Test
+    public void checkMoves() throws Exception {
+      Board board = new Board(TestUtils.getMultilineString("23 W", "...n.", "..kbr", "..p.p", "R.P.P", ".P.P.", "..B.K"));
+      NegaMaxPlayer player = new NegaMaxPlayer(Player.WHITE, 4);
+      System.out.println(board);
+      Board result = board.move(player.getMove(board));
+      System.out.println(result);
+    }
 	
 }
