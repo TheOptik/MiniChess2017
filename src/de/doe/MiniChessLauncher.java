@@ -13,7 +13,7 @@ public class MiniChessLauncher {
 	public static void main(String[] args) throws InterruptedException {
 		
 		// playRandom();
-		playOnline(5);
+		playOnline(15);
 		// playRandomVSHeuristic();
 		// playNegamaxVSNegaMax();
 		
@@ -23,7 +23,7 @@ public class MiniChessLauncher {
 		Board board = new Board();
 		
 		AbstractPlayer player1 = new NegaMaxPlayer(Player.WHITE, 1);
-		AbstractPlayer player2 = new NegaMaxPlayer(Player.BLACK, 4);
+		AbstractPlayer player2 = new NegaMaxPlayer(Player.BLACK, 1);
 		
 		Move move;
 		System.out.println(board);
@@ -80,7 +80,7 @@ public class MiniChessLauncher {
 		int win = 0;
 		
 		for (int i = 0; i < count; i++) {
-			String id = "14165";
+			String id = "14493";
 			
 			Board board = new Board();
 			Move move;
@@ -92,7 +92,7 @@ public class MiniChessLauncher {
 				
 				char color = client.accept(id, '?');
 				Player botPlayer = Player.fromChar(color);
-				AbstractPlayer bot = new NegaMaxPlayer(botPlayer, 6);
+				AbstractPlayer bot = new NegaMaxPlayer(botPlayer, 4);
 				Player remotePlayer = botPlayer.other();
 				
 				System.out.println("REMOTE: " + remotePlayer);

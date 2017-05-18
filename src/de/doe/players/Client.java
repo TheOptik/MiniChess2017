@@ -262,8 +262,10 @@ public class Client {
 		out.flush();
 		try {
 			String line;
-			while (!(line = in.readLine()).contains("offer")) {
-				
+			while ((line = in.readLine()) != null) {
+				if (line.contains("offer") && line.contains("Dummy")) {
+					break;
+				}
 			}
 			Scanner scanner = new Scanner(line);
 			result = scanner.nextInt();

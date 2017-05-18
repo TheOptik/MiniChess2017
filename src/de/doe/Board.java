@@ -231,6 +231,10 @@ public class Board {
 		return isGameOver;
 	}
 	
+	public Player getWinner() {
+		return winner;
+	}
+	
 	public Player getActivePlayer() {
 		return activePlayer;
 	}
