@@ -80,7 +80,7 @@ public class MiniChessLauncher {
 		int win = 0;
 		
 		for (int i = 0; i < count; i++) {
-			String id = "15627";
+			String id = "15633";
 			
 			Board board = new Board();
 			Move move;

@@ -13,22 +13,6 @@ import heuristics.BoardEvaluator;
 public class StateEvaluatorTest {
 	
 	@Test
-	public void stateEvaluatorTempTest() throws Exception {
-		
-		Board board = new Board(
-				TestUtils.getMultilineString("1 W", ".....", "r....", "..K..", "..p..", ".r...", "....."));
-		BoardEvaluator evaluator = new BoardEvaluator(Player.WHITE);
-		NegaMaxPlayer player = new NegaMaxPlayer(Player.WHITE, 2);
-		assertEquals(89, evaluator.evaluate(board));
-		assertEquals(89, evaluator.evaluate(board));
-		System.out.println(board);
-		player.getMove(board);
-		System.out.println(board);
-		assertEquals(89, evaluator.evaluate(board));
-		
-	}
-	
-	@Test
 	public void evaluationPawnVsKing() throws Exception {
 		
 		Board board = new Board(
@@ -42,10 +26,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(99, evalW.evaluate(board));
-		assertEquals(-99, evalW.evaluate(board1));
-		assertEquals(-99, evalB.evaluate(board2));
-		assertEquals(99, evalB.evaluate(board3));
+		assertEquals(215, evalW.evaluate(board));
+		assertEquals(-215, evalW.evaluate(board1));
+		assertEquals(-215, evalB.evaluate(board2));
+		assertEquals(215, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -62,10 +46,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(8, evalW.evaluate(board));
-		assertEquals(-8, evalW.evaluate(board1));
-		assertEquals(-8, evalB.evaluate(board2));
-		assertEquals(8, evalB.evaluate(board3));
+		assertEquals(171, evalW.evaluate(board));
+		assertEquals(-171, evalW.evaluate(board1));
+		assertEquals(-171, evalB.evaluate(board2));
+		assertEquals(171, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -82,10 +66,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(2, evalW.evaluate(board));
-		assertEquals(-2, evalW.evaluate(board1));
-		assertEquals(-2, evalB.evaluate(board2));
-		assertEquals(2, evalB.evaluate(board3));
+		assertEquals(41, evalW.evaluate(board));
+		assertEquals(-41, evalW.evaluate(board1));
+		assertEquals(-41, evalB.evaluate(board2));
+		assertEquals(41, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -102,10 +86,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(2, evalW.evaluate(board));
-		assertEquals(-2, evalW.evaluate(board1));
-		assertEquals(-2, evalB.evaluate(board2));
-		assertEquals(2, evalB.evaluate(board3));
+		assertEquals(72, evalW.evaluate(board));
+		assertEquals(-72, evalW.evaluate(board1));
+		assertEquals(-72, evalB.evaluate(board2));
+		assertEquals(72, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -122,10 +106,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(4, evalW.evaluate(board));
-		assertEquals(-4, evalW.evaluate(board1));
-		assertEquals(-4, evalB.evaluate(board2));
-		assertEquals(4, evalB.evaluate(board3));
+		assertEquals(84, evalW.evaluate(board));
+		assertEquals(-84, evalW.evaluate(board1));
+		assertEquals(-84, evalB.evaluate(board2));
+		assertEquals(84, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -161,10 +145,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(95, evalW.evaluate(board));
-		assertEquals(-95, evalW.evaluate(board1));
-		assertEquals(-95, evalB.evaluate(board2));
-		assertEquals(95, evalB.evaluate(board3));
+		assertEquals(131, evalW.evaluate(board));
+		assertEquals(-131, evalW.evaluate(board1));
+		assertEquals(-131, evalB.evaluate(board2));
+		assertEquals(131, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -180,10 +164,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(4, evalW.evaluate(board));
-		assertEquals(-4, evalW.evaluate(board1));
-		assertEquals(-4, evalB.evaluate(board2));
-		assertEquals(4, evalB.evaluate(board3));
+		assertEquals(87, evalW.evaluate(board));
+		assertEquals(-87, evalW.evaluate(board1));
+		assertEquals(-87, evalB.evaluate(board2));
+		assertEquals(87, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -199,10 +183,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(-2, evalW.evaluate(board));
-		assertEquals(2, evalW.evaluate(board1));
-		assertEquals(2, evalB.evaluate(board2));
-		assertEquals(-2, evalB.evaluate(board3));
+		assertEquals(-43, evalW.evaluate(board));
+		assertEquals(43, evalW.evaluate(board1));
+		assertEquals(43, evalB.evaluate(board2));
+		assertEquals(-43, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -218,10 +202,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(-2, evalW.evaluate(board));
-		assertEquals(2, evalW.evaluate(board1));
-		assertEquals(2, evalB.evaluate(board2));
-		assertEquals(-2, evalB.evaluate(board3));
+		assertEquals(-12, evalW.evaluate(board));
+		assertEquals(12, evalW.evaluate(board1));
+		assertEquals(12, evalB.evaluate(board2));
+		assertEquals(-12, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -256,10 +240,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(97, evalW.evaluate(board));
-		assertEquals(-97, evalW.evaluate(board1));
-		assertEquals(-97, evalB.evaluate(board2));
-		assertEquals(97, evalB.evaluate(board3));
+		assertEquals(143, evalW.evaluate(board));
+		assertEquals(-143, evalW.evaluate(board1));
+		assertEquals(-143, evalB.evaluate(board2));
+		assertEquals(143, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -275,10 +259,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board2));
-		assertEquals(6, evalB.evaluate(board3));
+		assertEquals(99, evalW.evaluate(board));
+		assertEquals(-99, evalW.evaluate(board1));
+		assertEquals(-99, evalB.evaluate(board2));
+		assertEquals(99, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -294,10 +278,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(0, evalW.evaluate(board));
-		assertEquals(0, evalW.evaluate(board1));
-		assertEquals(0, evalB.evaluate(board2));
-		assertEquals(0, evalB.evaluate(board3));
+		assertEquals(-31, evalW.evaluate(board));
+		assertEquals(31, evalW.evaluate(board1));
+		assertEquals(31, evalB.evaluate(board2));
+		assertEquals(-31, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -332,10 +316,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(97, evalW.evaluate(board));
-		assertEquals(-97, evalW.evaluate(board1));
-		assertEquals(-97, evalB.evaluate(board2));
-		assertEquals(97, evalB.evaluate(board3));
+		assertEquals(174, evalW.evaluate(board));
+		assertEquals(-174, evalW.evaluate(board1));
+		assertEquals(-174, evalB.evaluate(board2));
+		assertEquals(174, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -351,10 +335,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board2));
-		assertEquals(6, evalB.evaluate(board3));
+		assertEquals(130, evalW.evaluate(board));
+		assertEquals(-130, evalW.evaluate(board1));
+		assertEquals(-130, evalB.evaluate(board2));
+		assertEquals(130, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -389,10 +373,10 @@ public class StateEvaluatorTest {
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
 		
-		assertEquals(91, evalW.evaluate(board));
-		assertEquals(-91, evalW.evaluate(board1));
-		assertEquals(-91, evalB.evaluate(board2));
-		assertEquals(91, evalB.evaluate(board3));
+		assertEquals(44, evalW.evaluate(board));
+		assertEquals(-44, evalW.evaluate(board1));
+		assertEquals(-44, evalB.evaluate(board2));
+		assertEquals(44, evalB.evaluate(board3));
 	}
 	
 	@Test
@@ -442,10 +426,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(101, evalW.evaluate(board));
-		assertEquals(-101, evalW.evaluate(board1));
-		assertEquals(-101, evalB.evaluate(board));
-		assertEquals(101, evalB.evaluate(board1));
+		assertEquals(251, evalW.evaluate(board));
+		assertEquals(-251, evalW.evaluate(board1));
+		assertEquals(-251, evalB.evaluate(board));
+		assertEquals(251, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -457,10 +441,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(10, evalW.evaluate(board));
-		assertEquals(-10, evalW.evaluate(board1));
-		assertEquals(-10, evalB.evaluate(board));
-		assertEquals(10, evalB.evaluate(board1));
+		assertEquals(207, evalW.evaluate(board));
+		assertEquals(-207, evalW.evaluate(board1));
+		assertEquals(-207, evalB.evaluate(board));
+		assertEquals(207, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -473,10 +457,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(4, evalW.evaluate(board));
-		assertEquals(-4, evalW.evaluate(board1));
-		assertEquals(-4, evalB.evaluate(board));
-		assertEquals(4, evalB.evaluate(board1));
+		assertEquals(77, evalW.evaluate(board));
+		assertEquals(-77, evalW.evaluate(board1));
+		assertEquals(-77, evalB.evaluate(board));
+		assertEquals(77, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -489,10 +473,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(4, evalW.evaluate(board));
-		assertEquals(-4, evalW.evaluate(board1));
-		assertEquals(-4, evalB.evaluate(board));
-		assertEquals(4, evalB.evaluate(board1));
+		assertEquals(108, evalW.evaluate(board));
+		assertEquals(-108, evalW.evaluate(board1));
+		assertEquals(-108, evalB.evaluate(board));
+		assertEquals(108, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -504,10 +488,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board));
-		assertEquals(6, evalB.evaluate(board1));
+		assertEquals(120, evalW.evaluate(board));
+		assertEquals(-120, evalW.evaluate(board1));
+		assertEquals(-120, evalB.evaluate(board));
+		assertEquals(120, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -520,10 +504,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(2, evalW.evaluate(board));
-		assertEquals(-2, evalW.evaluate(board1));
-		assertEquals(-2, evalB.evaluate(board));
-		assertEquals(2, evalB.evaluate(board1));
+		assertEquals(36, evalW.evaluate(board));
+		assertEquals(-36, evalW.evaluate(board1));
+		assertEquals(-36, evalB.evaluate(board));
+		assertEquals(36, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -535,10 +519,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(105, evalW.evaluate(board));
-		assertEquals(-105, evalW.evaluate(board1));
-		assertEquals(-105, evalB.evaluate(board));
-		assertEquals(105, evalB.evaluate(board1));
+		assertEquals(335, evalW.evaluate(board));
+		assertEquals(-335, evalW.evaluate(board1));
+		assertEquals(-335, evalB.evaluate(board));
+		assertEquals(335, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -550,10 +534,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(14, evalW.evaluate(board));
-		assertEquals(-14, evalW.evaluate(board1));
-		assertEquals(-14, evalB.evaluate(board));
-		assertEquals(14, evalB.evaluate(board1));
+		assertEquals(291, evalW.evaluate(board));
+		assertEquals(-291, evalW.evaluate(board1));
+		assertEquals(-291, evalB.evaluate(board));
+		assertEquals(291, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -565,10 +549,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(8, evalW.evaluate(board));
-		assertEquals(-8, evalW.evaluate(board1));
-		assertEquals(-8, evalB.evaluate(board));
-		assertEquals(8, evalB.evaluate(board1));
+		assertEquals(161, evalW.evaluate(board));
+		assertEquals(-161, evalW.evaluate(board1));
+		assertEquals(-161, evalB.evaluate(board));
+		assertEquals(161, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -580,10 +564,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(8, evalW.evaluate(board));
-		assertEquals(-8, evalW.evaluate(board1));
-		assertEquals(-8, evalB.evaluate(board));
-		assertEquals(8, evalB.evaluate(board1));
+		assertEquals(192, evalW.evaluate(board));
+		assertEquals(-192, evalW.evaluate(board1));
+		assertEquals(-192, evalB.evaluate(board));
+		assertEquals(192, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -595,10 +579,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(10, evalW.evaluate(board));
-		assertEquals(-10, evalW.evaluate(board1));
-		assertEquals(-10, evalB.evaluate(board));
-		assertEquals(10, evalB.evaluate(board1));
+		assertEquals(204, evalW.evaluate(board));
+		assertEquals(-204, evalW.evaluate(board1));
+		assertEquals(-204, evalB.evaluate(board));
+		assertEquals(204, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -610,10 +594,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(103, evalW.evaluate(board));
-		assertEquals(-103, evalW.evaluate(board1));
-		assertEquals(-103, evalB.evaluate(board));
-		assertEquals(103, evalB.evaluate(board1));
+		assertEquals(323, evalW.evaluate(board));
+		assertEquals(-323, evalW.evaluate(board1));
+		assertEquals(-323, evalB.evaluate(board));
+		assertEquals(323, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -625,10 +609,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(12, evalW.evaluate(board));
-		assertEquals(-12, evalW.evaluate(board1));
-		assertEquals(-12, evalB.evaluate(board));
-		assertEquals(12, evalB.evaluate(board1));
+		assertEquals(279, evalW.evaluate(board));
+		assertEquals(-279, evalW.evaluate(board1));
+		assertEquals(-279, evalB.evaluate(board));
+		assertEquals(279, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -640,10 +624,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board));
-		assertEquals(6, evalB.evaluate(board1));
+		assertEquals(149, evalW.evaluate(board));
+		assertEquals(-149, evalW.evaluate(board1));
+		assertEquals(-149, evalB.evaluate(board));
+		assertEquals(149, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -655,10 +639,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board));
-		assertEquals(6, evalB.evaluate(board1));
+		assertEquals(180, evalW.evaluate(board));
+		assertEquals(-180, evalW.evaluate(board1));
+		assertEquals(-180, evalB.evaluate(board));
+		assertEquals(180, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -670,10 +654,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(103, evalW.evaluate(board));
-		assertEquals(-103, evalW.evaluate(board1));
-		assertEquals(-103, evalB.evaluate(board));
-		assertEquals(103, evalB.evaluate(board1));
+		assertEquals(292, evalW.evaluate(board));
+		assertEquals(-292, evalW.evaluate(board1));
+		assertEquals(-292, evalB.evaluate(board));
+		assertEquals(292, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -685,10 +669,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(12, evalW.evaluate(board));
-		assertEquals(-12, evalW.evaluate(board1));
-		assertEquals(-12, evalB.evaluate(board));
-		assertEquals(12, evalB.evaluate(board1));
+		assertEquals(248, evalW.evaluate(board));
+		assertEquals(-248, evalW.evaluate(board1));
+		assertEquals(-248, evalB.evaluate(board));
+		assertEquals(248, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -700,10 +684,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(6, evalW.evaluate(board));
-		assertEquals(-6, evalW.evaluate(board1));
-		assertEquals(-6, evalB.evaluate(board));
-		assertEquals(6, evalB.evaluate(board1));
+		assertEquals(118, evalW.evaluate(board));
+		assertEquals(-118, evalW.evaluate(board1));
+		assertEquals(-118, evalB.evaluate(board));
+		assertEquals(118, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -715,10 +699,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(109, evalW.evaluate(board));
-		assertEquals(-109, evalW.evaluate(board1));
-		assertEquals(-109, evalB.evaluate(board));
-		assertEquals(109, evalB.evaluate(board1));
+		assertEquals(422, evalW.evaluate(board));
+		assertEquals(-422, evalW.evaluate(board1));
+		assertEquals(-422, evalB.evaluate(board));
+		assertEquals(422, evalB.evaluate(board1));
 	}
 	
 	@Test
@@ -730,10 +714,10 @@ public class StateEvaluatorTest {
 		
 		BoardEvaluator evalW = new BoardEvaluator(Player.WHITE);
 		BoardEvaluator evalB = new BoardEvaluator(Player.BLACK);
-		assertEquals(18, evalW.evaluate(board));
-		assertEquals(-18, evalW.evaluate(board1));
-		assertEquals(-18, evalB.evaluate(board));
-		assertEquals(18, evalB.evaluate(board1));
+		assertEquals(378, evalW.evaluate(board));
+		assertEquals(-378, evalW.evaluate(board1));
+		assertEquals(-378, evalB.evaluate(board));
+		assertEquals(378, evalB.evaluate(board1));
 	}
 	
 	@Test
