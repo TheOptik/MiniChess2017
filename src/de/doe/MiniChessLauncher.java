@@ -13,7 +13,7 @@ public class MiniChessLauncher {
 	public static void main(String[] args) throws InterruptedException {
 		
 		// playRandom();
-		playOnline(6);
+		playOnline(10);
 		// playRandomVSHeuristic();
 		// playNegamaxVSNegaMax();
 		
@@ -92,7 +92,7 @@ public class MiniChessLauncher {
 				
 				char color = client.accept(id, '?');
 				Player botPlayer = Player.fromChar(color);
-				AbstractPlayer bot = new NegaMaxPlayer(botPlayer, 2);
+				AbstractPlayer bot = new NegaMaxPlayer(botPlayer, 6);
 				Player remotePlayer = botPlayer.other();
 				
 				System.out.println("REMOTE: " + remotePlayer);

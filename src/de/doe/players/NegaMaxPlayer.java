@@ -57,7 +57,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		});
 		timer.start();
 		
-		int depth = 2;
+		int depth = 4;
 		while (!timeout) {
 			// System.out.println(depth + "______________");
 			for (Move move : moves) {
@@ -99,10 +99,10 @@ public class NegaMaxPlayer extends AbstractPlayer {
 			int score = -negaMax(board, depth - 1, -beta, -alpha);
 			board.undoMove(move);
 			
-			// if (score >= beta) {
-			// return score;
-			// }
-			// alpha = Math.max(alpha, score);
+			if (score >= beta) {
+				return score;
+			}
+			alpha = Math.max(alpha, score);
 			result = Math.max(result, score);
 			
 		}
