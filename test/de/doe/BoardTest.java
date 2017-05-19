@@ -8,6 +8,7 @@ import java.io.StringReader;
 import org.junit.Test;
 
 import de.doe.figures.Figure;
+import de.doe.players.NegaMaxPlayer;
 
 public class BoardTest {
 	
@@ -126,6 +127,25 @@ public class BoardTest {
 		
 	}
 	
+	@Test
+    public void promotionTest() throws Exception {
+      
+	  Board wBoard = new Board(TestUtils.getMultilineString("1 W", ".....", "..P..", ".....", ".....", ".....", "....."));
+	  Board bBoard = new Board(TestUtils.getMultilineString("1 B", ".....", ".....", ".....", ".....", "..p..", "....."));
+      
+	  Board wExpected = new Board(TestUtils.getMultilineString("2 B", "..Q..", ".....", ".....", ".....", ".....", "....."));
+      Board bExpected = new Board(TestUtils.getMultilineString("2 W", ".....", ".....", ".....", ".....", ".....", "..q.."));
+	  
+	  NegaMaxPlayer wPlayer = new NegaMaxPlayer(Player.WHITE, 1);
+	  NegaMaxPlayer bPlayer = new NegaMaxPlayer(Player.BLACK, 1);
+	  
+	  wBoard.move(wPlayer.getMove(wBoard));
+	  bBoard.move(bPlayer.getMove(bBoard));
+	  
+	  assertEquals(wExpected.toString(), wBoard.toString());
+	  assertEquals(bExpected.toString(), bBoard.toString());
+	  
+    }
 	
 	
 	/**
