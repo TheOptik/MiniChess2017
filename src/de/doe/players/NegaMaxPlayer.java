@@ -12,6 +12,8 @@ import heuristics.BoardEvaluator;
 
 public class NegaMaxPlayer extends AbstractPlayer {
 	
+	private static final int MIN = -1000000;
+	
 	private final int timePerMove;
 	private boolean timeout = false;
 	private int lastPlayDepth = 0;
@@ -33,7 +35,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 		List<Move> moves = generator.getAllMoves();
 		Collections.shuffle(moves, new Random(1));
 		
-		int maxScore = Integer.MIN_VALUE;
+		int maxScore = MIN;
 		Move bestMove = null;
 		timeout = false;
 		
@@ -60,7 +62,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 			// System.out.println(depth + "______________");
 			for (Move move : moves) {
 				int score = -negaMax(board.move(move), depth, -1000, 1000);
-//				System.out.println(score + ":" + move.toChessString());
+				// System.out.println(score + ":" + move.toChessString());
 				board.undoMove(move);
 				if (score > maxScore) {
 					maxScore = score;
@@ -80,11 +82,11 @@ public class NegaMaxPlayer extends AbstractPlayer {
 	protected int negaMax(Board board, int depth, int alpha, int beta) {
 		// TODO make into thread safe thing so we can multi thread
 		if (timeout) {
-			return Integer.MIN_VALUE;
+			return MIN;
 		}
 		MoveGenerator generator = new MoveGenerator(board);
 		List<Move> moves = generator.getAllMoves();
-		int result = Integer.MIN_VALUE;
+		int result = MIN;
 		BoardEvaluator evaluator = new BoardEvaluator(board.getActivePlayer());
 		
 		if (depth <= 0 || moves.isEmpty()) {
@@ -97,10 +99,10 @@ public class NegaMaxPlayer extends AbstractPlayer {
 			int score = -negaMax(board, depth - 1, -beta, -alpha);
 			board.undoMove(move);
 			
-//			if (score >= beta) {
-//				return score;
-//			}
-//			alpha = Math.max(alpha, score);
+			// if (score >= beta) {
+			// return score;
+			// }
+			// alpha = Math.max(alpha, score);
 			result = Math.max(result, score);
 			
 		}
