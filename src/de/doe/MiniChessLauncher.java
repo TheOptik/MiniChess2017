@@ -13,7 +13,7 @@ public class MiniChessLauncher {
 	public static void main(String[] args) throws InterruptedException {
 		
 		// playRandom();
-		playOnline(10);
+		playOnline(3);
 		// playRandomVSHeuristic();
 		// playNegamaxVSNegaMax();
 		

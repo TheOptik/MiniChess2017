@@ -64,7 +64,7 @@ public class NegaMaxPlayer extends AbstractPlayer {
 				int score = -negaMax(board.move(move), depth, -1000, 1000);
 				// System.out.println(score + ":" + move.toChessString());
 				board.undoMove(move);
-				if (score > maxScore) {
+				if (!timeout && score > maxScore) {
 					maxScore = score;
 					bestMove = move;
 					if (board.isGameOver()) {
