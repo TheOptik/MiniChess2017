@@ -13,7 +13,7 @@ public class MiniChessLauncher {
 	public static void main(String[] args) throws InterruptedException {
 		
 		// playRandom();
-		playOnline(3);
+		playOnline(2);
 		// playRandomVSHeuristic();
 		// playNegamaxVSNegaMax();
 		
@@ -133,6 +133,7 @@ public class MiniChessLauncher {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			System.out.println(((double) win / (i + 1)) * 100.0 + "%");
 		}
 		System.out.println(((double) win / count) * 100.0 + "%");
 		
