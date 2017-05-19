@@ -104,11 +104,8 @@ public class NegaMaxPlayer extends AbstractPlayer {
 			}
 			alpha = Math.max(alpha, score);
 			result = Math.max(result, score);
-			
 		}
-		
 		return result;
-		
 	}
 	
 	protected int getLastPlayDepth() {
