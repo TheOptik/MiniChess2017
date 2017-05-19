@@ -17,6 +17,7 @@ public class Board {
 
   protected boolean isGameOver = false; // save
   protected boolean isDraw = false; // save
+  //protected boolean promotionInLastTurn;
   protected Player winner; // save
 
   protected List<Figure> whiteFigures = new ArrayList<>();
@@ -162,15 +163,17 @@ public class Board {
   }
 
   public Board move(Move move) {
-
+ 
     if (move == null) {
       this.isGameOver = true;
       this.winner = activePlayer.other();
       return this;
     } else {
-      previousStates
-          .push(new BoardState(isGameOver, isDraw, winner, fields[move.to.x][move.to.y].figure));
+      previousStates.push(new BoardState(isGameOver, isDraw, winner, fields[move.to.x][move.to.y].figure));
+      //previousStates.push(new BoardState(isGameOver, isDraw, promotionInLastTurn, winner, fields[move.to.x][move.to.y].figure));
     }
+
+    //promotionInLastTurn = false;
 
     if (move.player.equals(activePlayer)) {
       Figure fig = this.fields[move.from.x][move.from.y].figure;
@@ -185,16 +188,26 @@ public class Board {
           .remove(this.fields[move.to.x][move.to.y].figure);
       this.fields[move.to.x][move.to.y].figure = fig;
 
-      if (move.to.y == 0 && this.fields[move.to.x][move.to.y].figure == Figure.WHITE_PAWN) {
-        this.fields[move.to.x][move.to.y].figure = Figure.WHITE_QUEEN;
-        whiteFigures.remove(Figure.WHITE_PAWN);
-        whiteFigures.add(Figure.WHITE_QUEEN);
-      }
-      if (move.to.y == 5 && this.fields[move.to.x][move.to.y].figure == Figure.BLACK_PAWN) {
-        this.fields[move.to.x][move.to.y].figure = Figure.BLACK_QUEEN;
-        whiteFigures.remove(Figure.BLACK_PAWN);
-        whiteFigures.add(Figure.BLACK_QUEEN);
-      }
+      //if (move.to.y == 0 && this.fields[move.to.x][move.to.y].figure == Figure.WHITE_PAWN) {
+      //  this.fields[move.to.x][move.to.y].figure = Figure.WHITE_QUEEN;
+      //  whiteFigures.remove(Figure.WHITE_PAWN);
+      //  whiteFigures.add(Figure.WHITE_QUEEN);
+      //  System.out.println("blub");
+      //  promotionInLastTurn = true;
+      //}
+      //else{
+      //  promotionInLastTurn = false;
+      //}
+      
+      //if (move.to.y == 5 && this.fields[move.to.x][move.to.y].figure == Figure.BLACK_PAWN) {
+      //  this.fields[move.to.x][move.to.y].figure = Figure.BLACK_QUEEN;
+      //  blackFigures.remove(Figure.BLACK_PAWN);
+      //  blackFigures.add(Figure.BLACK_QUEEN);
+      //  promotionInLastTurn = true;
+      //}
+      //else{
+      //  promotionInLastTurn = false;
+      //}
 
       this.activePlayer = activePlayer.other();
       this.numberOfMoves++;
@@ -214,6 +227,9 @@ public class Board {
 
     isGameOver = previousState.isGameOver;
     isDraw = previousState.isDraw;
+    //promotionInLastTurn = previousState.promotionInLastTurn;
+    //if (promotionInLastTurn)
+    //  System.out.println(promotionInLastTurn);
     winner = previousState.winner;
     numberOfMoves--;
     activePlayer = activePlayer.other();
@@ -223,6 +239,18 @@ public class Board {
     if (previousState.capturedFigure != null) {
       getAllFiguresForPlayer(previousState.capturedFigure.getPlayer())
           .add(previousState.capturedFigure);
+    }
+    if (previousState.promotionInLastTurn) {
+      System.out.println(fields[move.from.x][move.from.y].figure);
+      if (activePlayer == Player.WHITE) {
+        fields[move.from.x][move.from.y].figure = Figure.WHITE_PAWN;
+        whiteFigures.remove(Figure.WHITE_QUEEN);
+        whiteFigures.add(Figure.WHITE_PAWN);
+      } else {
+        fields[move.from.x][move.from.y].figure = Figure.BLACK_PAWN;
+        blackFigures.remove(Figure.BLACK_QUEEN);
+        blackFigures.add(Figure.BLACK_PAWN);
+      }
     }
 
     return this;
@@ -283,13 +311,20 @@ public class Board {
   private class BoardState {
     boolean isGameOver;
     boolean isDraw;
+    boolean promotionInLastTurn;
     Player winner;
     Figure capturedFigure;
 
-    public BoardState(boolean isGameOver, boolean isDraw, Player winner, Figure capturedFigure) {
+
+    public BoardState(boolean isGameOver, boolean isDraw, Player winner, Figure capturedFigure){
+    //public BoardState(boolean isGameOver, boolean isDraw, boolean promotionInLastTurn,
+     //   Player winner, Figure capturedFigure) {
       super();
       this.isGameOver = isGameOver;
       this.isDraw = isDraw;
+      //this.promotionInLastTurn = promotionInLastTurn;
+      //if (promotionInLastTurn)
+      //  System.out.println("promotion in constructor");
       this.winner = winner;
       this.capturedFigure = capturedFigure;
     }

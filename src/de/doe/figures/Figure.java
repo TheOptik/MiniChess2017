@@ -10,19 +10,19 @@ import de.doe.Player;
 
 public abstract class Figure {
 	
-	public static final Figure WHITE_PAWN = new Pawn(Player.WHITE, 1);
-	public static final Figure WHITE_ROOK = new Rook(Player.WHITE, 5);
-	public static final Figure WHITE_KNIGHT = new Knight(Player.WHITE, 2);
-	public static final Figure WHITE_BISHOP = new Bishop(Player.WHITE, 2);
-	public static final Figure WHITE_QUEEN = new Queen(Player.WHITE, 7);
-	public static final Figure WHITE_KING = new King(Player.WHITE, 1000);
+	public static final Figure WHITE_PAWN = new Pawn(Player.WHITE, 18);
+	public static final Figure WHITE_ROOK = new Rook(Player.WHITE, 102);
+	public static final Figure WHITE_KNIGHT = new Knight(Player.WHITE, 90);
+	public static final Figure WHITE_BISHOP = new Bishop(Player.WHITE, 59);
+	public static final Figure WHITE_QUEEN = new Queen(Player.WHITE, 189);
+	public static final Figure WHITE_KING = new King(Player.WHITE, 233);
 	
-	public static final Figure BLACK_PAWN = new Pawn(Player.BLACK, 1);
-	public static final Figure BLACK_ROOK = new Rook(Player.BLACK, 5);
-	public static final Figure BLACK_KNIGHT = new Knight(Player.BLACK, 2);
-	public static final Figure BLACK_BISHOP = new Bishop(Player.BLACK, 2);
-	public static final Figure BLACK_QUEEN = new Queen(Player.BLACK, 7);
-	public static final Figure BLACK_KING = new King(Player.BLACK, 1000);
+	public static final Figure BLACK_PAWN = new Pawn(Player.BLACK, 18);
+	public static final Figure BLACK_ROOK = new Rook(Player.BLACK, 102);
+	public static final Figure BLACK_KNIGHT = new Knight(Player.BLACK, 90);
+	public static final Figure BLACK_BISHOP = new Bishop(Player.BLACK, 59);
+	public static final Figure BLACK_QUEEN = new Queen(Player.BLACK, 189);
+	public static final Figure BLACK_KING = new King(Player.BLACK, 233);
 	
 	public static final char WHITE_PAWN_CODE = 'P';
 	public static final char WHITE_ROOK_CODE = 'R';
