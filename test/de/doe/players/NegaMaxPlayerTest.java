@@ -37,7 +37,7 @@ public class NegaMaxPlayerTest {
 		Board expected2 = new Board(
 				TestUtils.getMultilineString("2 B", ".....", "r....", ".....", "..pK.", ".r...", "....."));
 		
-		NegaMaxPlayer player1 = new NegaMaxPlayer(Player.WHITE, 0);
+		NegaMaxPlayer player1 = new NegaMaxPlayer(Player.WHITE, 1);
 		Move move = player1.getMove(board);
 		Board result = board.move(move);
 		

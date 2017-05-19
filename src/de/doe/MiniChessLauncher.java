@@ -13,9 +13,9 @@ public class MiniChessLauncher {
 	public static void main(String[] args) throws InterruptedException {
 		
 		// playRandom();
-		// playOnline(1);
+		 playOnline(1);
 		// playRandomVSHeuristic();
-		 playNegamaxVSNegaMax();
+		// playNegamaxVSNegaMax();
 		
 	}
 	
@@ -80,7 +80,7 @@ public class MiniChessLauncher {
 		int win = 0;
 		
 		for (int i = 0; i < count; i++) {
-			String id = "15579";
+			String id = "15627";
 			
 			Board board = new Board();
 			Move move;

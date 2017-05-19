@@ -211,7 +211,7 @@ public class Board {
 
       this.activePlayer = activePlayer.other();
       this.numberOfMoves++;
-      if (this.numberOfMoves >= 80) {
+      if (this.numberOfMoves > 80) {
         this.isDraw = true;
       }
 
